@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/ownJs/main.js"></script>
+    <script src="js/ownJs/pushPop.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
@@ -14,12 +15,20 @@
           <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
             <img src="Pics/Logo.png" class="img-responsive img-thumbnail" alt="Logo">
           </div>
-          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" id="headerNavDiv">
+          <div id="headerNavDiv">
             <nav>
               <ul class="nav nav-pills">
                 <li role="presentation" class="active"><a href="#" id="home">Hem</a></li>
-                <li role="presentation"><a href="#" id="electrical">Elfordon</a></li>
-                <li role="presentation"><a href="#" id="diesel">Dieselfordon</a></li>
+                <li class="dropdown disabled"><a href="#" id="home">Fordonstyper</a>
+                  <ul class="dropdown-menu">
+                    <li role="presentation"><a href="#" id="electrical">Elfordon</a></li>
+                    <li role="presentation"><a href="#" id="diesel">Dieselfordon</a>
+                      <ul class="dropdown-menu">
+                        <li class="dropdown"><a href="#">Katt</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
                 <li role="presentation"><a href="#" id="outings">Utflykter</a></li>
                 <li role="presentation"><a href="#" id="contact">Läsarkontakt</a></li>
                 <li role="presentation"><a href="#" id="admin">Adminfunktioner <span class="glyphicon glyphicon-cog"></span></a></li>
@@ -47,11 +56,52 @@
         </section>
         <section class="admin">
           <p>hej admin</p>
+          <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <h1>För nya inlägg</h1>
+            <div class="form-group">
+              <label for="inputHeading">Rubrik</label>
+              <input type="text" class="form-control" id="inputHeading" placeholder="Skriv in rubrik för inlägg..">
+            </div>
+            <div class="form-group">
+              <label for="emailInput">Innehåll</label>
+              <textarea class="form-control" id="emailInput" placeholder="Skriv ditt inlägg här.."></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">Publicera</button>
+          </form>
+          <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="footerForm">
+            <h1>För att uppdatera sidfot</h1>
+            <div class="form-group">
+              <label for="footerName">Namn:</label>
+              <input id="footerName" type="text" class="form-control" placeholder="Namn...">
+            </div>
+            <div class="form-group">
+              <label for="footerStreet">Gatuadress:</label>
+              <input id="footerStreet" type="text" class="form-control" placeholder="Gatuadress..">
+            </div>
+            <div class="form-group">
+              <label for="footerZip">Postnummer:</label>
+              <input id="footerZip" type="text" class="form-control" placeholder="Postnummer..">
+            </div>
+            <div class="form-group">
+              <label for="footerCity">Postort:</label>
+              <input id="footerCity" type="text" class="form-control" placeholder="Postort..">
+            </div>
+            <div class="form-group">
+              <label for="footerPhone">Telefonnummer:</label>
+              <input id="footerPhone" type="text" class="form-control" placeholder="Telefonnummer..">
+            </div>
+            <div class="form-group">
+              <label for="footerEmail">Mailadress:</label>
+              <input id="footerEmail" type="text" class="form-control" placeholder="Mailadress..">
+            </div>
+              <button class="btn btn-default" type="submit">Uppdatera</button>
+          </form>
         </section>
       </div>
     </main>
-    <footer>
-      
+    <footer class="container">
+      <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      </div>
     </footer>
   </body>
 </html>
