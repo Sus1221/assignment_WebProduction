@@ -32,25 +32,6 @@ $(function() {
 
 	function footerInfoToAndFromDb(footerInfo) {
 
-		//If the in parameter footerInfo is an empty object
-		if ($.isEmptyObject(footerInfo)) {
-          
-			$.ajax({
-				url: "php/footer.php",
-				dataType: "json",
-				data: {
-					"footerRequest" : 1
-				},
-				success: function (data) {
-					console.log("Success of footerInfoToAndFromDb without footerInfo");
-				},
-				error: function(data) {
-					console.log("Error in footerInfoToAndFromDb without footerInfo");
-				}
-			});
-
-		//Else send the footer info from the form
-		}else {
 			$.ajax({
 				url: "php/footer.php",
 				dataType: "json",
@@ -58,13 +39,12 @@ $(function() {
 					"footerData" : footerInfo
 				},
 				success: function(data) {
-					console.log("Success for footerInfoToAndFromDb with footerInfo");
+					console.log("Success for footerInfoToAndFromDb", data, data.responseText);
 				},
 				error: function(data) {
-					console.log("Error for footerInfoToAndFromDb with footerInfo");
+					console.log("Error for footerInfoToAndFromDb", data, data.responseText);
 				}
 			});
-		}
 	}
 
 });
