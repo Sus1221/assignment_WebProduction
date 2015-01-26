@@ -3,6 +3,17 @@ $(function() {
 	//To begin with, hide all sections but the home one
 	$("section").hide();
 	$("section.home").show();
+	
+	//Handles class-"active" and visibility of sections according to navchoice-click
+	$("body").on("click", "#headerNavDiv a", function() {
+		$("#headerNavDiv li").removeClass("active");
+		$(this).parent().addClass("active");
+		$("section").hide();
+		console.log($(this).attr("id"));
+		var rightString = $(this).attr("id");
+		$("section."+rightString).show();
+	});
+	
 	getFooterData();
 
 	function getFooterData() {
@@ -34,19 +45,12 @@ $(function() {
 				"<p>" + data[0].email + "</p>"
 			);
 
-		$("#footerAppendBox").append(datas);
+		$("#footerAppendBox").html(datas);
 	}
 
-	//Handles class-"active" and visibility of sections according to navchoice-click
-	$("body").on("click", "#headerNavDiv a", function() {
-		$("#headerNavDiv li").removeClass("active");
-		$(this).parent().addClass("active");
-		$("section").hide();
-		console.log($(this).attr("id"));
-		var rightString = $(this).attr("id");
-		$("section."+rightString).show();
-	});
+	
 
+	//When submitting new footer-data
 	$('#footerForm').submit(function() {
 
 		var footerInfo = {};
@@ -65,6 +69,7 @@ $(function() {
 		footerInfoToAndFromDb(footerInfo);
 		getFooterData();
 		return false;
+
 	});
 
 	function footerInfoToAndFromDb(footerInfo) {
