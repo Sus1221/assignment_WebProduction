@@ -13,7 +13,7 @@ $(function() {
 		var rightString = $(this).attr("id");
 		$("section."+rightString).show();
 	});
-	
+
 	getFooterData();
 
 	function getFooterData() {
@@ -61,7 +61,7 @@ $(function() {
 		footerInfo.city = $("#footerCity").val();
 		footerInfo.phone = $("#footerPhone").val();
 		footerInfo.email = $("#footerEmail").val();
-		console.log(footerInfo);
+		console.log("Submit function for footer form" ,footerInfo);
 
 		//empty the form at submit
 		this.reset();
@@ -74,6 +74,7 @@ $(function() {
 
 	function footerInfoToAndFromDb(footerInfo) {
 
+		console.log("1",footerInfo);
 			$.ajax({
 				url: "php/footer.php",
 				dataType: "json",
