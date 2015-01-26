@@ -2,6 +2,9 @@
 header {
   background-color: #ffffcc;
 }
+#footer-wrapper {
+  background-color: #ffffad;
+}
 #headerNavDiv {
   margin-top: 5vh;
 }

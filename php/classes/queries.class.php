@@ -9,10 +9,10 @@ class Queries extends PDOHelper {
 	public function insertFooterInfo($footerData) {
 
 		//Our sql question
-		$sql = "INSERT INTO footer(name, street, postalcode, city, phone, info) VALUES (:name, :street, :zip, :city, :phone, :email)";
+		$sql = "INSERT INTO footer(name, street, postalcode, city, phone, email) VALUES (:name, :street, :zip, :city, :phone, :email)";
 		
-		//
-		return $this->query($sql, $footerData);
+		//Run function "query", send in query above and $footerData
+		$this->query($sql, $footerData);
 
 	}
 }

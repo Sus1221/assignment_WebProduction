@@ -37,71 +37,78 @@
           </div>
         </div>
     </header>
-    <main class="container">
-      <div class="row">
-        <section class="home">
-          <p>hej home</p>
-        </section>
-        <section class="electrical">
-          <p>hej elfordon</p>
-        </section>
-        <section class="diesel">
-          <p>hej diesel</p>
-        </section>
-        <section class="outings">
-          <p>hej outings</p>
-        </section>
-        <section class="contact">
-          <p>hej contact</p>
-        </section>
-        <section class="admin">
-          <p>hej admin</p>
-          <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <h1>För nya inlägg</h1>
+      <main class="container">
+        <div class="row">
+          <section class="home">
+            <p>hej home</p>
+          </section>
+          <section class="electrical">
+            <p>hej elfordon</p>
+          </section>
+          <section class="diesel">
+            <p>hej diesel</p>
+          </section>
+          <section class="outings">
+            <p>hej outings</p>
+          </section>
+          <section class="contact">
+            <p>hej contact</p>
+          </section>
+          <section class="admin">
+            <p>hej admin</p>
+            <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <h1>För nya inlägg</h1>
+              <div class="form-group">
+                <label for="inputHeading">Rubrik</label>
+                <input type="text" class="form-control" id="inputHeading" placeholder="Skriv in rubrik för inlägg..">
+              </div>
+              <div class="form-group">
+                <label for="emailInput">Innehåll</label>
+                <textarea class="form-control" id="emailInput" placeholder="Skriv ditt inlägg här.."></textarea>
+              </div>
+              <button type="submit" class="btn btn-default">Publicera</button>
+            </form>
+            <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="footerForm">
+              <h1>För att uppdatera sidfot</h1>
+              <div class="form-group">
+                <label for="footerName">Namn:</label>
+                <input id="footerName" type="text" class="form-control" placeholder="Namn...">
+              </div>
+              <div class="form-group">
+                <label for="footerStreet">Gatuadress:</label>
+                <input id="footerStreet" type="text" class="form-control" placeholder="Gatuadress..">
+              </div>
+              <div class="form-group">
+                <label for="footerZip">Postnummer:</label>
+                <input id="footerZip" type="text" class="form-control" placeholder="Postnummer..">
+              </div>
+              <div class="form-group">
+                <label for="footerCity">Postort:</label>
+                <input id="footerCity" type="text" class="form-control" placeholder="Postort..">
+              </div>
+              <div class="form-group">
+                <label for="footerPhone">Telefonnummer:</label>
+                <input id="footerPhone" type="text" class="form-control" placeholder="Telefonnummer..">
+              </div>
+              <div class="form-group">
+                <label for="footerEmail">Mailadress:</label>
+                <input id="footerEmail" type="text" class="form-control" placeholder="Mailadress..">
+              </div>
+                <button class="btn btn-default" type="submit">Uppdatera</button>
+            </form>
+          </section>
+        </div>
+      </main>
+      <div class="navbar navbar-default navbar-fixed-bottom" id="footer-wrapper">
+        <footer class="container">
+          <p class="navbar-text pull-left">Site built by Susanne Jönsson</p>
+          <form class="navbar-form navbar-right" role="search">
             <div class="form-group">
-              <label for="inputHeading">Rubrik</label>
-              <input type="text" class="form-control" id="inputHeading" placeholder="Skriv in rubrik för inlägg..">
+              <input type="text" class="form-control" placeholder="Sök på artikel..">
             </div>
-            <div class="form-group">
-              <label for="emailInput">Innehåll</label>
-              <textarea class="form-control" id="emailInput" placeholder="Skriv ditt inlägg här.."></textarea>
-            </div>
-            <button type="submit" class="btn btn-default">Publicera</button>
+            <button type="submit" class="btn btn-default">Sök</button>
           </form>
-          <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="footerForm">
-            <h1>För att uppdatera sidfot</h1>
-            <div class="form-group">
-              <label for="footerName">Namn:</label>
-              <input id="footerName" type="text" class="form-control" placeholder="Namn...">
-            </div>
-            <div class="form-group">
-              <label for="footerStreet">Gatuadress:</label>
-              <input id="footerStreet" type="text" class="form-control" placeholder="Gatuadress..">
-            </div>
-            <div class="form-group">
-              <label for="footerZip">Postnummer:</label>
-              <input id="footerZip" type="text" class="form-control" placeholder="Postnummer..">
-            </div>
-            <div class="form-group">
-              <label for="footerCity">Postort:</label>
-              <input id="footerCity" type="text" class="form-control" placeholder="Postort..">
-            </div>
-            <div class="form-group">
-              <label for="footerPhone">Telefonnummer:</label>
-              <input id="footerPhone" type="text" class="form-control" placeholder="Telefonnummer..">
-            </div>
-            <div class="form-group">
-              <label for="footerEmail">Mailadress:</label>
-              <input id="footerEmail" type="text" class="form-control" placeholder="Mailadress..">
-            </div>
-              <button class="btn btn-default" type="submit">Uppdatera</button>
-          </form>
-        </section>
+        </footer>
       </div>
-    </main>
-    <footer class="container">
-      <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      </div>
-    </footer>
   </body>
 </html>
