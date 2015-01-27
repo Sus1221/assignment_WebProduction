@@ -36,16 +36,22 @@ $(function() {
 	}
 
 	function appendToFooter(data) {
-		var datas = $("<div/>");
-		datas.append(
-				"<p>" + data[0].name + "</p>" +
-				"<p>" + data[0].street + "</p>" +
-				"<p>" + data[0].postalcode + " " + data[0].city + "</p>" +
-				"<p>" + data[0].phone + "</p>"+
-				"<p>" + data[0].email + "</p>"
+		console.log(data[0].name);
+		var datasLeft = $("<div/>");
+		var datasRight = $("<div/>");
+		datasLeft.append(
+			"<p>" + data[0].name + "</p>" +
+			"<p>" + data[0].street + "</p>" +
+			"<p>" + data[0].postalcode + " " + data[0].city + "</p>"
+				
+			);
+		datasRight.append(
+			"<p>" + data[0].phone + "</p>"+
+			"<p>" + data[0].email + "</p>"
 			);
 
-		$("#footerAppendBox").html(datas);
+		$("#footerAppendBoxLeft").html(datasLeft);
+		$("#footerAppendBoxRight").html(datasRight);
 	}
 
 	
@@ -82,7 +88,8 @@ $(function() {
 					"footerDataInput" : footerInfo
 				},
 				success: function(data) {
-					console.log("Success for footerInfoToAndFromDb", data, data.responseText);
+					console.log("Success for footerInfoToAndFromDb", data);
+					getFooterData();
 
 				},
 				error: function(data) {
