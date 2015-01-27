@@ -1,6 +1,17 @@
 @import "bootstrap.css";
 @basecolor:#ffffa8;
 
+@headingFont:'Cutive Mono', ;
+@bodyTextFont:'Bitter', serif;
+
+body {
+	font-family: @bodyTextFont;
+}
+
+h1, h2, h3, h4, h5, h6, a {
+	font-family: @headingFont;
+}
+
 header {
 	background-color: lighten(@basecolor, 7%);
 }
@@ -11,6 +22,10 @@ header {
 
 #headerNavDiv {
 	margin-top: 5vh;
+}
+
+header img {
+	padding: 10px;
 }
 
 nav > ul > li.dropdown:hover > ul {

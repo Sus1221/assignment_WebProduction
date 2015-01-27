@@ -1,4 +1,16 @@
 @import "bootstrap.css";
+body {
+  font-family: 'Bitter', serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  font-family: 'Cutive Mono';
+}
 header {
   background-color: #ffffcc;
 }
@@ -7,6 +19,9 @@ header {
 }
 #headerNavDiv {
   margin-top: 5vh;
+}
+header img {
+  padding: 10px;
 }
 nav > ul > li.dropdown:hover > ul {
   display: block;
