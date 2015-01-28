@@ -14,7 +14,25 @@ $(function() {
 		$("section."+rightString).show();
 	});
 
-	
-	
+
+	//create array to store names of a-tags in header nav
+	var opsToSelectCat = [];
+	//grab values of each a-tag in header nav and push to array
+	$("header nav ul li a").each(function() {
+		opsToSelectCat.push($(this).text());
+	});
+	//create select
+	var select = $("<select></select>");
+	//create option tag for each item in array, push them into the select-tag
+	for (var i = 0; i < opsToSelectCat.length ; i++) {
+	select.append("<option>"+opsToSelectCat[i]+"</option>");
+	}
+	//Empty 
+	$("#selectInNewArticleForm").html(select);
+
+
 
 });
+
+
+//<option value="volvo">Volvo</option>
