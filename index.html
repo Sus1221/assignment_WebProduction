@@ -8,7 +8,7 @@
     <script src="js/ownJs/main.js"></script>
     <script src="js/ownJs/footer.js"></script>
     <script src="js/ownJs/article.js"></script>
-    <!-- <script src="js/ownJs/pushPop.js"></script> -->
+    <script src="js/ownJs/pushPop.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href='http://fonts.googleapis.com/css?family=Cutive+Mono|Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
   </head>
@@ -21,21 +21,21 @@
           <div id="headerNavDiv">
             <nav>
               <ul class="nav nav-pills">
-                <li role="presentation" class="active liNotInSelect"><a href="#" id="home">Hem</a></li>
-                <li role="presentation" class="liNotInSelect"><a href="#">Alla artiklar</a></li>
-                <li class="dropdown disabled"><a href="#" id="home">Fordonstyper</a>
+                <li role="presentation" class="active liNotInSelect"><a href="home">Hem</a></li>
+                <li role="presentation" class="liNotInSelect"><a href="all">Alla artiklar</a></li>
+                <li class="dropdown disabled"><a href="">Fordonstyper</a>
                   <ul class="dropdown-menu">
-                    <li role="presentation"><a href="#" id="electrical">Elfordon</a></li>
-                    <li role="presentation"><a href="#" id="diesel">Dieselfordon</a>
+                    <li role="presentation"><a href="electrical">Elfordon</a></li>
+                    <li role="presentation"><a href="diesel">Dieselfordon</a>
                       <ul class="dropdown-menu">
-                        <li class="dropdown"><a href="#">Katt</a></li>
+                        <li class="dropdown"><a href="katt">Katt</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li role="presentation"><a href="#" id="outings">Utflykter</a></li>
-                <li role="presentation"><a href="#" id="contact">Läsarkontakt</a></li>
-                <li role="presentation" class="liNotInSelect"><a href="#" id="admin" class="liNotInSelect">Adminfunktioner <span class="glyphicon glyphicon-cog"></span></a></li>
+                <li role="presentation"><a href="outings">Utflykter</a></li>
+                <li role="presentation"><a href="contact">Läsarkontakt</a></li>
+                <li role="presentation" class="liNotInSelect"><a href="admin" class="liNotInSelect">Adminfunktioner <span class="glyphicon glyphicon-cog"></span></a></li>
               </ul>
             </nav>
           </div>
@@ -43,8 +43,8 @@
     </header>
       <main class="container">
         <div class="row">
-          <section class="home">
-            <p>hej home</p>
+          <section class="all">
+            <p>hej all</p>
           </section>
           <section class="electrical">
             <p>hej elfordon</p>
@@ -59,9 +59,8 @@
             <p>hej contact</p>
           </section>
           <section class="admin">
-            <p>hej admin</p>
             
-            <form class="col-xs-12 col-sm-12 col-md-8 col-lg-8" id="newArticleForm">
+            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="newArticleForm">
               <h1>För nya inlägg</h1>
               <p>Välj vilken rubrik den nya artikeln ska ligga under i menyn:</p>
               <div class="form-group" id="selectInNewArticleForm">
@@ -77,34 +76,39 @@
               <button type="submit" class="btn btn-default">Publicera</button>
             </form>
             
-            <form class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="footerForm">
-              <h1>För att uppdatera sidfot</h1>
-              <div class="form-group">
-                <label for="footerName">Namn:</label>
-                <input id="footerName" type="text" class="form-control" placeholder="Namn...">
-              </div>
-              <div class="form-group">
-                <label for="footerStreet">Gatuadress:</label>
-                <input id="footerStreet" type="text" class="form-control" placeholder="Gatuadress..">
-              </div>
-              <div class="form-group">
-                <label for="footerZip">Postnummer:</label>
-                <input id="footerZip" type="text" class="form-control" placeholder="Postnummer..">
-              </div>
-              <div class="form-group">
-                <label for="footerCity">Postort:</label>
-                <input id="footerCity" type="text" class="form-control" placeholder="Postort..">
-              </div>
-              <div class="form-group">
-                <label for="footerPhone">Telefonnummer:</label>
-                <input id="footerPhone" type="text" class="form-control" placeholder="Telefonnummer..">
-              </div>
-              <div class="form-group">
-                <label for="footerEmail">Mailadress:</label>
-                <input id="footerEmail" type="text" class="form-control" placeholder="Mailadress..">
-              </div>
-                <button class="btn btn-default" type="submit">Uppdatera</button>
-            </form>
+            <div class="row">
+              <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <h1>För att redigera meny</h1>
+              </form>
+              <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="footerForm">
+                <h1>För att uppdatera sidfot</h1>
+                <div class="form-group">
+                  <label for="footerName">Namn:</label>
+                  <input id="footerName" type="text" class="form-control" placeholder="Namn...">
+                </div>
+                <div class="form-group">
+                  <label for="footerStreet">Gatuadress:</label>
+                  <input id="footerStreet" type="text" class="form-control" placeholder="Gatuadress..">
+                </div>
+                <div class="form-group">
+                  <label for="footerZip">Postnummer:</label>
+                  <input id="footerZip" type="text" class="form-control" placeholder="Postnummer..">
+                </div>
+                <div class="form-group">
+                  <label for="footerCity">Postort:</label>
+                  <input id="footerCity" type="text" class="form-control" placeholder="Postort..">
+                </div>
+                <div class="form-group">
+                  <label for="footerPhone">Telefonnummer:</label>
+                  <input id="footerPhone" type="text" class="form-control" placeholder="Telefonnummer..">
+                </div>
+                <div class="form-group">
+                  <label for="footerEmail">Mailadress:</label>
+                  <input id="footerEmail" type="text" class="form-control" placeholder="Mailadress..">
+                </div>
+                  <button class="btn btn-default" type="submit">Uppdatera</button>
+              </form>
+            </div>
           </section>
         </div>
       </main>
