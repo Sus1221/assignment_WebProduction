@@ -11,12 +11,12 @@ $(function() {
 					"getFooterData" : 1
 				},
 				success: function(data) {
-					console.log("Success for footerInfoToAndFromDb", data);
+					console.log("Success for getFooterData", data);
 					appendToFooter(data);
 
 				},
 				error: function(data) {
-					console.log("Error for footerInfoToAndFromDb", data, data.responseText);
+					console.log("Error for getFooterData", data, data.responseText);
 				}
 			});
 	}
@@ -43,8 +43,10 @@ $(function() {
 	//When submitting new footer-data
 	$('#footerForm').submit(function() {
 
+		//create object for footerinfo
 		var footerInfo = {};
 
+		//grab footerinfo from form inputs
 		footerInfo.name = $("#footerName").val();
 		footerInfo.street = $("#footerStreet").val();
 		footerInfo.zip = $("#footerZip").val();
@@ -55,14 +57,15 @@ $(function() {
 
 		//empty the form at submit
 		this.reset();
-		//run function footerInfoToAndFromDb
-		footerInfoToAndFromDb(footerInfo);
+		//run functions to send footerInfo to db and update footer
+		footerInfoToDb(footerInfo);
 		getFooterData();
 		return false;
 
 	});
 
-	function footerInfoToAndFromDb(footerInfo) {
+	//sends footerData grabbed in form to DB
+	function footerInfoToDb(footerInfo) {
 
 		console.log("1",footerInfo);
 			$.ajax({
@@ -72,12 +75,12 @@ $(function() {
 					"footerDataInput" : footerInfo
 				},
 				success: function(data) {
-					console.log("Success for footerInfoToAndFromDb", data);
+					console.log("Success for footerInfoToDb", data);
 					getFooterData();
 
 				},
 				error: function(data) {
-					console.log("Error for footerInfoToAndFromDb", data, data.responseText);
+					console.log("Error for footerInfoToDb", data, data.responseText);
 				}
 			});
 	}
