@@ -7,18 +7,14 @@ class Queries extends PDOHelper {
 
 	//To insert new footer info
 	public function insertFooterInfo($footerData) {
-
 		//Our sql question
-		$sql = "INSERT INTO footer(name, street, postalcode, city, phone, email) VALUES (:name, :street, :zip, :city, :phone, :email)";
-		
+		$sql = "INSERT INTO footer(name, street, postalcode, city, phone, email) VALUES (:name, :street, :zip, :city, :phone, :email)";		
 		//Run function "query", send in query above and $footerData
 		return $this->query($sql, $footerData);
-
 	}
 
 	//To grab footerinfo
 	public function getFooterInfo() {
-
 		//Our sql-question
 		$sql = "SELECT * FROM footer ORDER BY created DESC limit 1";
 		return $this->query($sql);
@@ -31,7 +27,11 @@ class Queries extends PDOHelper {
 		$sql = "INSERT INTO pages(title, body, user_id) VALUES (:heading, :body, :user_id)";
 		//run function"query", send in query above and $articleInfo
 		return $this->query($sql, $articleInfo);
+	}
 
+	public function getAllArticles() {
+		$sql = "SELECT * FROM pages ORDER BY created DESC";
+		return $this->query($sql);
 	}
 }
 

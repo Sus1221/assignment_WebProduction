@@ -17,12 +17,14 @@ $(function() {
 	function onPopAndStart() {
 		var loc = location.href;
 		pageName = loc.substring(loc.lastIndexOf("/")+1);
+		//If no
+		if (pageName.length === 0) {
+			pageName = "home";
+		}
 		console.log(pageName);
 		//Hide all sections, then show the right one
 		displaySection(pageName);
-		
 	}
-
 
 	function displaySection(endHref) {
 		//adding/removing active class
@@ -32,6 +34,8 @@ $(function() {
 			
 		$("section").hide();
 		$("section."+endHref).show();
-
+		if(endHref == "all"){
+			getAllArticles();
+		}
 	}
 });

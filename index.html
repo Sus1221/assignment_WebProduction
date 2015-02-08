@@ -9,6 +9,7 @@
     <script src="js/ownJs/footer.js"></script>
     <script src="js/ownJs/article.js"></script>
     <script src="js/ownJs/pushPop.js"></script>
+    <script src="js/ownJs/menu.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href='http://fonts.googleapis.com/css?family=Cutive+Mono|Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
   </head>
@@ -47,7 +48,6 @@
             <p>hej home</p>
           </section>
           <section class="all">
-            <p>hej all</p>
           </section>
           <section class="electrical">
             <p>hej elfordon</p>
@@ -66,7 +66,7 @@
             <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="newArticleForm">
               <h1>För nya inlägg</h1>
               <p>Välj vilken rubrik den nya artikeln ska ligga under i menyn:</p>
-              <div class="form-group" id="selectInNewArticleForm">
+              <div class="form-group" id="divForSelectInNewArticleForm">
               </div>
               <div class="form-group">
                 <label for="inputHeading">Rubrik</label>
@@ -80,9 +80,22 @@
             </form>
             
             <div class="row">
+              
               <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <h1>För att redigera meny</h1>
+                <div class="form-group" id="divForSelectParentForMenuItem">
+                  <p>Välj vilken menypunkt din nya punkt ska ligga under:</p>
+                </div>
+                <div class="form-group">
+                  <!-- <input type="checkbox" name="addMenuItem" value="add"> Jag vill lägga till en meny-punkt<br> -->
+                </div>
+                <div class="form-group">
+                  <label for="menuItemInput">Namn på ny meny-punkt:</label>
+                  <input id="menuItemInput" type="text">
+                </div>
+                <button type="submit" class="btn btn-default">Lägg till</button>
               </form>
+
               <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="footerForm">
                 <h1>För att uppdatera sidfot</h1>
                 <div class="form-group">

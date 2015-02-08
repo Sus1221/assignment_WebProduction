@@ -8,3 +8,8 @@ if(isset($_REQUEST["articleInfo"])) {
 
 	echo(json_encode($article_query->insertArticle($_REQUEST["articleInfo"])));
 }
+
+if(isset($_REQUEST["allArticles"])) {
+
+	echo (json_encode($article_query->getAllArticles()));
+}
