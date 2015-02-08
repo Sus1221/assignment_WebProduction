@@ -22,7 +22,6 @@ $(function() {
 	}
 
 	function appendToFooter(data) {
-		console.log(data[0].name);
 		var datasLeft = $("<div/>");
 		var datasRight = $("<div/>");
 		datasLeft.append(
