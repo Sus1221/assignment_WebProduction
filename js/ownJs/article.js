@@ -22,19 +22,7 @@
 	}
 
 
-	//When submitting a new article
-	$("#newArticleForm").submit(function() {
-		var article = {};
-		// article.parent = $("#newArticleForm select option:selected").text();
-		article.heading = $("#articleHeading").val();
-		article.body = $("#articleBody").val();
-		console.log("article submit:", article);
-		//empty form
-		this.reset();
-		//run to send article-data to db
-		articleToDb(article);
-		return false;
-	});
+
 
 	//function to send new article to db
 	function articleToDb(article) {
