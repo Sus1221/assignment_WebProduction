@@ -24,12 +24,11 @@
 
 	//When submitting a new article
 	$("#newArticleForm").submit(function() {
-		alert("Hej");
 		var article = {};
 		// article.parent = $("#newArticleForm select option:selected").text();
 		article.heading = $("#articleHeading").val();
 		article.body = $("#articleBody").val();
-		console.log("article submit:",article);
+		console.log("article submit:", article);
 		//empty form
 		this.reset();
 		//run to send article-data to db
