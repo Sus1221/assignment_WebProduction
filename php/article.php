@@ -2,7 +2,7 @@
 
 include_once("autoloader.php");
 
-$article_query = New Queries("127.0.0.1", "webbproduktion", "root", "mysql");
+$article_query = New Queries("127.0.0.1", "webbproduktion2", "root", "mysql");
 
 if(isset($_REQUEST["articleInfo"])) {
 

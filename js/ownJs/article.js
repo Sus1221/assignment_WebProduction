@@ -21,12 +21,24 @@
 		$("#divForSelectInNewArticleForm").html(select);
 	}
 
-
-
+			//When submitting a new article
+	$("#newArticleForm").submit(function() {
+		var article = {};
+		// article.parent = $("#newArticleForm select option:selected").text();
+		article.heading = $("#articleHeading").val();
+		article.body = $("#articleBody").val();
+		article.picWay = $("#pictureInput").val();
+		console.log("article to submit data:", article);
+		//empty form
+		this.reset();
+		//run to send article-data to db
+		articleToDb(article);
+		return false;
+	});
 
 	//function to send new article to db
 	function articleToDb(article) {
-		console.log(article);
+		console.log("start of articleToDb", article);
 		$.ajax({
 			url: "php/article.php",
 			dataType: "json",

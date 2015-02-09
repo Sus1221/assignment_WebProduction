@@ -1,7 +1,3 @@
-$(function() {
-
-	getFooterData();
-
 	function getFooterData() {
 
 		$.ajax({
@@ -83,5 +79,3 @@ $(function() {
 				}
 			});
 	}
-
-});

@@ -1,7 +1,3 @@
-$(function() {
-
-	onPopAndStart();
-
 	$(document).on("click", "a", function() {
 
 		//framåt
@@ -10,9 +6,6 @@ $(function() {
 		event.preventDefault();
 	});
 		
-	//listens for popstate-events
-	addEventListener("popstate",onPopAndStart);
-
 	//grabs last string of current locationhref and shows matching div
 	function onPopAndStart() {
 		var loc = location.href;
@@ -38,4 +31,3 @@ $(function() {
 			getAllArticles();
 		}
 	}
-});

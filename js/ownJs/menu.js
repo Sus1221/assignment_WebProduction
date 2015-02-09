@@ -1,5 +1,4 @@
-$(function() {
-
+function createMenuSelect(){
 	var parentOptions = [];
 
 	$("header nav ul li:not(.disabled, .liNotInSelect) a").each(function() {
@@ -16,4 +15,4 @@ $(function() {
 	//Replace content in select with options
 	$("#divForSelectParentForMenuItem").html(select);
 
-});
+}

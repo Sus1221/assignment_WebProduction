@@ -2,7 +2,7 @@
 
 include_once("autoloader.php");
 
-$footerQuery = New Queries("127.0.0.1","webbproduktion","root","mysql");
+$footerQuery = New Queries("127.0.0.1","webbproduktion2","root","mysql");
 
 //If a request about footer-data comes
 if(isset($_REQUEST["footerDataInput"])) {
