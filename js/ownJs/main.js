@@ -100,4 +100,23 @@ $(function() {
 		});
 		return false;
 	});
+
+	$("#searchForm").submit(function() {
+		var searchWord = $("#searchField").val();
+		console.log("searchField data", searchWord);
+		$.ajax({
+			url: "php/article.php",
+			dataType: "json",
+			data: {
+				"search": searchWord
+			},
+			success: function(data) {
+				console.log("Success for search submit", data);
+			},
+			error: function(data) {
+				console.log("error for search submit", data, data.responseText);
+			}
+		});
+		return false;
+	});
 });

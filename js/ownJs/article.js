@@ -62,13 +62,12 @@
 		$("section.all").html("");
 		//Print body and created of each article
 		for (var i = 0; i < data.length ;i++) {
+			$("section.all").append("<p>" + data[i].title + "</p>");
 			$("section.all").append("<p>" + data[i].body + "</p>");
 			$("section.all").append("<p>" + (data[i].created).substring(0,16) + "</p>");
 			$("section.all").append("<hr>");
 		}
 	}
-
-
 
 	function printToSelect(data) {
 		var select = $("<select></select>");

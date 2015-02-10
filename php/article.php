@@ -23,3 +23,7 @@ if(isset($_REQUEST["articleToEdit"])) {
 if(isset($_REQUEST["updatedArticle"])) {
 	echo(json_encode($article_query->updateOneArticle($_REQUEST["updatedArticle"])));
 }
+
+if(isset($_REQUEST["search"])) {
+	echo(json_encode($article_query->search($_REQUEST["search"])));
+}
