@@ -21,21 +21,6 @@
 		$("#divForSelectInNewArticleForm").html(select);
 	}
 
-			//When submitting a new article
-	$("#newArticleForm").submit(function() {
-		var article = {};
-		// article.parent = $("#newArticleForm select option:selected").text();
-		article.heading = $("#articleHeading").val();
-		article.body = $("#articleBody").val();
-		article.picWay = $("#pictureInput").val();
-		console.log("article to submit data:", article);
-		//empty form
-		this.reset();
-		//run to send article-data to db
-		articleToDb(article);
-		return false;
-	});
-
 	//function to send new article to db
 	function articleToDb(article) {
 		console.log("start of articleToDb", article);
@@ -81,4 +66,70 @@
 			$("section.all").append("<p>" + (data[i].created).substring(0,16) + "</p>");
 			$("section.all").append("<hr>");
 		}
+	}
+
+
+
+	function printToSelect(data) {
+		var select = $("<select></select>");
+		for(var i = 0; i < data.length; i++) {
+			var option = $("<option>" + data[i].title + " " +data[i].created + "</option>");
+			option.data("pageData", data[i]);
+			select.append(option);
+		}
+		$("#deleteArticleForm").append(select);
+		$("#deleteArticleForm").append('<button class="btn btn-default" type="submit">Radera inlägg</button');
+	}
+
+	function printToSelect2(data) {
+		var select = $("<select></select>");
+		for(var i = 0; i < data.length; i++) {
+			var option = $("<option>" + data[i].title + " " +data[i].created + "</option>");
+			option.data("pageData", data[i]);
+			select.append(option);
+		}
+		$("#editArticleForm").append(select);
+		$("#editArticleForm").append('<button class="btn btn-default" type="submit">Redigera inlägg</button');
+	}
+
+	function sendDeleteRequest(object) {
+		$.ajax({
+			url: "php/article.php",
+			dataType: "json",
+			data: {
+				"deleteThis": object
+			},
+			success: function(data) {
+				console.log("success if sendDeleteRequest function", data);
+			},
+			error: function(data) {
+				console.log("Error of sendDeleteRequest function",data,data.responseText);
+			}
+		});
+	}
+	function articleToEditRequest(object) {
+		$.ajax({
+			url: "php/article.php",
+			dataType: "json",
+			data: {
+				"articleToEdit": object
+			},
+			success: function(data) {
+				console.log("success of sendArticleToEditRequest function", data);
+				articleToEdit = data;
+				printEditForm(data);
+			},
+			error: function(data) {
+				console.log("Error of sendArticleToEditRequest function",data,data.responseText);
+			}
+		});
+	}
+
+	function printEditForm(data) {
+		console.log("printeditform function",data);
+		var editForm = $("<form class='col-xs-6 col-sm-6 col-md-4 col-lg-4' id='editForm'></form>");
+		editForm.append("<input type='text' value='" +data[0].title + "'>");
+		editForm.append("<input type='text' value='" + data[0].body + "'>");
+		editForm.append("<button id='sendEditedArticleButton' type='submit'>Uppdatera artikel</button>");
+		$("#editFormDiv").html(editForm);
 	}

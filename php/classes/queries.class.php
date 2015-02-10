@@ -33,6 +33,18 @@ class Queries extends PDOHelper {
 		$sql = "SELECT * FROM pages ORDER BY created DESC";
 		return $this->query($sql);
 	}
+
+	public function deleteAnArticle($object) {
+		$sql = "DELETE FROM pages WHERE pid = :pid";
+		$parameters = array(":pid" => $object["pid"]);
+		return $this->query($sql, $parameters);
+	}
+
+	public function oneArticle($object) {
+		$sql = "SELECT * FROM pages WHERE pid = :pid";
+		$parameters = array(":pid" => $object["pid"]);
+		return $this->query($sql, $parameters);
+	}
 }
 
 
