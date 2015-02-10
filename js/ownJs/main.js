@@ -112,6 +112,7 @@ $(function() {
 			},
 			success: function(data) {
 				console.log("Success for search submit", data);
+				printSearchResult(data);
 			},
 			error: function(data) {
 				console.log("error for search submit", data, data.responseText);

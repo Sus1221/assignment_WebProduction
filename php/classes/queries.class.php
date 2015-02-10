@@ -53,13 +53,11 @@ class Queries extends PDOHelper {
 	}
 
 	public function search($searchWord) {
-		$sql = "SELECT * FROM pages WHERE title LIKE '%:title%'";
-		$parameters = array(":title" => $searchWord);
+		$sql = "SELECT * FROM pages WHERE title LIKE :word";
+		$parameters = array(":word" => '%'.$searchWord.'%');
 		return $this->query($sql, $parameters);
 	}
 }
-
- 
 
 
   

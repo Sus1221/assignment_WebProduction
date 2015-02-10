@@ -132,3 +132,7 @@
 		editForm.append("<button id='sendEditedArticleButton'>Uppdatera artikel</button>");
 		$("#editFormDiv").html(editForm);
 	}
+
+	function printSearchResult(response) {
+		
+	}

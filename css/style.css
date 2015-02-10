@@ -48,3 +48,9 @@ footer {
 footer div {
   padding: 5px;
 }
+#searchResult {
+  width: 800px;
+  height: 800px;
+  background-color: red;
+  z-index: 100;
+}
