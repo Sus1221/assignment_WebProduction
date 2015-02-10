@@ -45,8 +45,15 @@ class Queries extends PDOHelper {
 		$parameters = array(":pid" => $object["pid"]);
 		return $this->query($sql, $parameters);
 	}
+
+	public function updateOneArticle($article) {
+		$sql = "UPDATE pages SET title = :title, body = :body WHERE pid = :pid";
+		$parameters = array(":title" => $article["title"], ":body" => $article["body"], ":pid" => $article["pid"]);
+		return $this->query($sql, $parameters);
+	}
 }
 
+ 
 
 
   

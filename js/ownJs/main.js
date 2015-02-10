@@ -80,22 +80,24 @@ $(function() {
 		return false;
 	});
 
-	$("#editForm").submit(function() {
-		console.log("On click for sendEditedArticleButton");
-		console.log("global variable articleToEdit: ",articleToEdit);
-		// $.ajax({
-		// 	url: "php/article.php",
-		// 	dataType: "json",
-		// 	data: {
-		// 		"updatedArticle": 1
-		// 	},
-		// 	success: function() {
-		// 		console.log("Success for sending edited article", data);
-		// 	},
-		// 	error: function() {
-		// 		console.log("error for sending edited article", data, data.responseText);
-		// 	}
-		// });
+	$(document).on("click", "#sendEditedArticleButton", function() {
+		console.log("articleToEdit global:", articleToEdit[0]);
+		articleToEdit[0].title = $("#editedTitle").val();
+		articleToEdit[0].body = $("#editedBody").val();
+		console.log("article to edit no 0: ", articleToEdit[0]);
+		$.ajax({
+			url: "php/article.php",
+			dataType: "json",
+			data: {
+				"updatedArticle": articleToEdit[0]
+			},
+			success: function(data) {
+				console.log("Success for sending edited article", data);
+			},
+			error: function(data) {
+				console.log("error for sending edited article", data, data.responseText);
+			}
+		});
 		return false;
 	});
 });

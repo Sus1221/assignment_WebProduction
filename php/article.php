@@ -19,3 +19,7 @@ if(isset($_REQUEST["deleteThis"])) {
 if(isset($_REQUEST["articleToEdit"])) {
 	echo(json_encode($article_query->oneArticle($_REQUEST["articleToEdit"])));
 }
+
+if(isset($_REQUEST["updatedArticle"])) {
+	echo(json_encode($article_query->updateOneArticle($_REQUEST["updatedArticle"])));
+}
