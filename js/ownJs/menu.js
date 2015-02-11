@@ -16,3 +16,20 @@ function createMenuSelect(){
 	$("#divForSelectParentForMenuItem").html(select);
 
 }
+
+function sendNewMenuInfo(menuObject) {
+	console.log("sendNewMenuInfo object: ", menuObject);
+	$.ajax({
+		url: "php/menu.php",
+		dataType: "json",
+		data: {
+			"menuToAdd": menuObject
+		},
+		success: function(data) {
+			console.log("success of sendNewMenuInfo function", data);
+		},
+		error: function(data) {
+			console.log("error of sendNewMenuInfo function", data, data.responseText);
+		}
+	});
+}

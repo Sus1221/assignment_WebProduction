@@ -48,3 +48,12 @@ footer {
 footer div {
   padding: 5px;
 }
+.emptySpace {
+  height: 25px;
+}
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  background-color: #334d1a;
+  color: #ffffcc;
+}

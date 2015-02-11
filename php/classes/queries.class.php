@@ -57,8 +57,13 @@ class Queries extends PDOHelper {
 		$parameters = array(":word" => '%'.$searchWord.'%');
 		return $this->query($sql, $parameters);
 	}
+
+	public function insertMenu($menuItem) {
+		$menuItem[":plid"] = $menuItem[":plid"] ? $menuItem[":plid"] : null;
+		$sql = "INSERT INTO menu_links(title, path, weight, plid) VALUES (:title, :path, :weight, :plid)";
+		return $this->query($sql, $menuItem);
+	}
 }
 
 
   
-   

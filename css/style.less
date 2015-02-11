@@ -1,5 +1,6 @@
 @import "bootstrap.css";
 @basecolor:#ffffa8;
+@traincolor:#334d1a;
 
 @headingFont:'Cutive Mono', ;
 @bodyTextFont:'Bitter', serif;
@@ -57,4 +58,13 @@ footer {
 
 footer div {
 	padding: 5px;
+}
+
+.emptySpace {
+	height: 25px;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+	background-color: @traincolor;
+	color: lighten(@basecolor, 7%);
 }

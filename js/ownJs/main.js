@@ -120,4 +120,15 @@ $(function() {
 		});
 		return false;
 	});
+
+	$("#addNewMenu").submit(function() {
+		var menuInfo = {};
+		menuInfo.title = $("#menuNameInput").val();
+		menuInfo.path = $("#menuPathInput").val();
+		menuInfo.plid = $("#menuParentInput").val();
+		menuInfo.weight = $("#menuWeightInput").val();
+		console.log("menuInfo object: ", menuInfo);
+		sendNewMenuInfo(menuInfo);
+		return false;
+	});
 });

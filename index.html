@@ -15,33 +15,36 @@
   </head>
   <body>
     <header class="container-fluid">
-        <div class="row">
-          <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
-            <a href="home"><img src="Pics/logo4.jpg" class="img-responsive" alt="Logo" href="index.html"></a>
-          </div>
-          <div id="headerNavDiv">
-            <nav>
-              <ul class="nav nav-pills">
-                <li role="presentation" class="active liNotInSelect"><a href="home">Hem</a></li>
-                <li role="presentation" class="liNotInSelect"><a href="all">Alla artiklar</a></li>
-                <li class="dropdown disabled"><a href="home">Fordonstyper</a>
-                  <ul class="dropdown-menu">
-                    <li role="presentation"><a href="electrical">Elfordon</a></li>
-                    <li role="presentation"><a href="diesel">Dieselfordon</a>
-                      <ul class="dropdown-menu">
-                        <li class="dropdown"><a href="katt">Katt</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li role="presentation"><a href="outings">Utflykter</a></li>
-                <li role="presentation"><a href="contact">Läsarkontakt</a></li>
-                <li role="presentation" class="liNotInSelect"><a href="admin" class="liNotInSelect">Adminfunktioner <span class="glyphicon glyphicon-cog"></span></a></li>
-              </ul>
-            </nav>
-          </div>
+      <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+          <a href="home"><img src="Pics/logo4.jpg" class="img-responsive" alt="Logo" href="index.html"></a>
         </div>
+        <div id="headerNavDiv" class="col-xs-8 col-sm-8 col-md-10 col-lg-10">
+          <nav>
+            <ul class="nav nav-pills">
+              <li role="presentation" class="active liNotInSelect"><a href="home">Hem</a></li>
+              <li role="presentation" class="liNotInSelect"><a href="all">Alla artiklar</a></li>
+              <li class="dropdown disabled"><a href="home">Fordonstyper</a>
+                <ul class="dropdown-menu">
+                  <li role="presentation"><a href="electrical">Elfordon</a></li>
+                  <li role="presentation"><a href="diesel">Dieselfordon</a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown"><a href="katt">Katt</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li role="presentation"><a href="outings">Utflykter</a></li>
+              <li role="presentation"><a href="contact">Läsarkontakt</a></li>
+              <li id="showAdminPage" class="liNotInSelect">
+                <a class="btn btn-default" href="admin">Adminfunktioner <span class="glyphicon glyphicon-cog"></span></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </header>
+    
       <main>
         <div class="container">
           <div class="row">
@@ -84,63 +87,80 @@
               </form>
             </section>
           </div>
-        </div>
-        <div class="row">
-          <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <h1>För att redigera meny</h1>
-            <div class="form-group">
-              <label for="menuItemInput">Namn på ny meny-punkt:</label>
-              <input id="menuItemInput" name="menuItemInput" type="text" required>
-            </div>
-            <button type="submit" class="btn btn-default">Lägg till</button>
-          </form>
-          <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="footerForm">
-            <h1>För att uppdatera sidfot</h1>
-            <div class="form-group">
-              <label for="footerName">Namn:</label>
-              <input id="footerName" name="footerName" type="text" class="form-control" placeholder="Namn..." required>
-            </div>
-            <div class="form-group">
-              <label for="footerStreet">Gatuadress:</label>
-              <input id="footerStreet" name="footerStreet" type="text" class="form-control" placeholder="Gatuadress.." required>
-            </div>
-            <div class="form-group">
-              <label for="footerZip">Postnummer:</label>
-              <input id="footerZip" name="footerZip" type="text" class="form-control" placeholder="Postnummer.." required>
-            </div>
-            <div class="form-group">
-              <label for="footerCity">Postort:</label>
-              <input id="footerCity" name="footerCity" type="text" class="form-control" placeholder="Postort.." required>
-            </div>
-            <div class="form-group">
-              <label for="footerPhone">Telefonnummer:</label>
-              <input id="footerPhone" name="footerPhone" type="text" class="form-control" placeholder="Telefonnummer.." required>
-            </div>
-            <div class="form-group">
-              <label for="footerEmail">Mailadress:</label>
-              <input id="footerEmail" name="footerEmail" type="text" class="form-control" placeholder="Mailadress.." required>
-            </div>
-              <button class="btn btn-default" type="submit">Uppdatera</button>
-          </form>
-        </div>
-        <div class="row">
-          <form class="col-xs-6 col-sm-6 col-md-4 col-lg-4" id="deleteArticleForm">
-            <div class="form-group">
-              <button class="btn btn-default" id="deleteArticleButton">Fourmulär för att ta bort ett inlägg</button>
-            </div>
-          </form>
-          <div id="editFormDiv">
-            <form class="col-xs-6 col-sm-6 col-md-8 col-lg-8" id="editArticleForm">
-              <button class="btn btn-default" id="editArticleButton">Formulär för att redigera ett inlägg</button>
+          <div class="row">
+            <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="addNewMenu">
+              <h1>För att redigera meny</h1>
+              <div class="form-group">
+                <label for="menuNameInput">Namn på ny meny-punkt:</label>
+                <input class="form-control" id="menuNameInput" name="menuItemInput" type="text" required>
+              </div>
+              <div class="form-group">
+                <label for="menuPathInput">Länkväg:</label>
+                <input class="form-control" id="menuPathInput" name="menuItemInput" type="text" required>
+              </div>
+              <div class="form-group">
+                <label for="menuParentInput">Välj ev. meny-punkt att ligga under</label>
+                <select id="menuParentInput" name="menuParentInput">
+                    <option value="">Ingen</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="menuWeightInput">Välj hur hög rank menypunkten ska ha:</label>
+                <input class="form-control" type="number" name="menuWeightInput" id="menuWeightInput" min="0" max="10">
+              </div>
+              <button type="submit" class="btn btn-default">Lägg till</button>
+            </form>
+            <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="footerForm">
+              <h1>För att uppdatera sidfot</h1>
+              <div class="form-group">
+                <label for="footerName">Namn:</label>
+                <input id="footerName" name="footerName" type="text" class="form-control" placeholder="Namn..." required>
+              </div>
+              <div class="form-group">
+                <label for="footerStreet">Gatuadress:</label>
+                <input id="footerStreet" name="footerStreet" type="text" class="form-control" placeholder="Gatuadress.." required>
+              </div>
+              <div class="form-group">
+                <label for="footerZip">Postnummer:</label>
+                <input id="footerZip" name="footerZip" type="text" class="form-control" placeholder="Postnummer.." required>
+              </div>
+              <div class="form-group">
+                <label for="footerCity">Postort:</label>
+                <input id="footerCity" name="footerCity" type="text" class="form-control" placeholder="Postort.." required>
+              </div>
+              <div class="form-group">
+                <label for="footerPhone">Telefonnummer:</label>
+                <input id="footerPhone" name="footerPhone" type="text" class="form-control" placeholder="Telefonnummer.." required>
+              </div>
+              <div class="form-group">
+                <label for="footerEmail">Mailadress:</label>
+                <input id="footerEmail" name="footerEmail" type="text" class="form-control" placeholder="Mailadress.." required>
+              </div>
+                <button class="btn btn-default" type="submit">Uppdatera</button>
             </form>
           </div>
         </div>
-      </main>
+        <div class="emptySpace"></div>
+        <div class="container">
+          <div class="row">
+            <form class="col-xs-6 col-sm-6 col-md-4 col-lg-4" id="deleteArticleForm">
+              <div class="form-group">
+                <button class="btn btn-default" id="deleteArticleButton">Fourmulär för att ta bort ett inlägg</button>
+              </div>
+            </form>
+            <div id="editFormDiv">
+              <form class="col-xs-6 col-sm-6 col-md-8 col-lg-8" id="editArticleForm">
+                <button class="btn btn-default" id="editArticleButton">Formulär för att redigera ett inlägg</button>
+              </form>
+            </div>
+          </div>
+        </div>
 
+      </main>
       <div class="navbar navbar-default navbar-fixed-bottom" id="footer-wrapper">
         <footer class="container">
-          <div class="navbar-left" id="footerAppendBoxLeft"></div>
-          <div class="navbar-left" id="footerAppendBoxRight"></div>
+          <adress class="navbar-left" id="footerAppendBoxLeft"></adress>
+          <adress class="navbar-left" id="footerAppendBoxRight"></adress>
           <form class="navbar-form navbar-right" id="searchForm" role="search">
             <div class="form-group">
               <input type="text" class="form-control" id="searchField" name="searchField" placeholder="Sök på artikel.." required>
@@ -161,8 +181,9 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
-            </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+            </div>
+          </div>
+        </div>
+    </div>
   </body>
 </html>
