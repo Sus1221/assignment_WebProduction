@@ -134,5 +134,19 @@
 	}
 
 	function printSearchResult(response) {
-		
+		console.log(response,"w");
+		$('#mySearchModal').modal('show');
+		var result = $("<div/>");
+		if(response.length > 0){
+			for (var i = 0; i < response.length; i++) {
+				result.append("<p>" + response[i].title + "</p>");
+				result.append("<p>" + response[i].body + "</p>");
+				result.append("<p>" + (response[i].created).substring(0,16) + "</p>");
+				result.append("<hr>");
+			}
+		}else {
+			result.append("Hittade ingen artikel");
+		}
+		console.log("result: ",result);
+		$(".modal-body").html(result);
 	}
