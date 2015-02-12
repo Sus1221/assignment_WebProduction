@@ -127,9 +127,14 @@
 	function printEditForm(data) {
 		console.log("printeditform function",data);
 		var editForm = $("<form class='col-xs-6 col-sm-6 col-md-4 col-lg-4' id='editForm'></form>");
-		editForm.append("<input type='text' id='editedTitle' value='" +data[0].title + "'>");
-		editForm.append("<input type='text' id='editedBody' value='" + data[0].body + "'>");
-		editForm.append("<button id='sendEditedArticleButton'>Uppdatera artikel</button>");
+		var input1 = $("<input type='text' id='editedTitle'>");
+		var textarea = $("<textarea type='text' id='editedBody'></textarea>");
+		input1.val(data[0].title);
+		textarea.val(data[0].body);
+		editForm.append(input1,textarea, "<button id='sendEditedArticleButton'>Uppdatera artikel</button>");
+		// editForm.append("<input type='text' id='editedTitle' value='" +data[0].title + "'>");
+		// editForm.append("<input type='text' id='editedBody' value='" + data[0].body + "'>");
+		// editForm.append("<button id='sendEditedArticleButton'>Uppdatera artikel</button>");
 		$("#editFormDiv").html(editForm);
 	}
 

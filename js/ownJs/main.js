@@ -8,6 +8,7 @@ $(function() {
 	createMenuSelect();
 	getFooterData();
 	addEventListener("popstate",onPopAndStart);
+	getMenuItemsFromDb();
 
 
 	//When submitting a new article
@@ -93,6 +94,7 @@ $(function() {
 			},
 			success: function(data) {
 				console.log("Success for sending edited article", data);
+				$("#editForm").html("Ändringen lyckades!");
 			},
 			error: function(data) {
 				console.log("error for sending edited article", data, data.responseText);
@@ -129,6 +131,7 @@ $(function() {
 		menuInfo.weight = $("#menuWeightInput").val();
 		console.log("menuInfo object: ", menuInfo);
 		sendNewMenuInfo(menuInfo);
+		this.reset();
 		return false;
 	});
 });

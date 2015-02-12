@@ -1,3 +1,4 @@
+//for select in create-new-article-form
 function createMenuSelect(){
 	var parentOptions = [];
 
@@ -17,6 +18,7 @@ function createMenuSelect(){
 
 }
 
+//When user created new menu-item
 function sendNewMenuInfo(menuObject) {
 	console.log("sendNewMenuInfo object: ", menuObject);
 	$.ajax({
@@ -30,6 +32,22 @@ function sendNewMenuInfo(menuObject) {
 		},
 		error: function(data) {
 			console.log("error of sendNewMenuInfo function", data, data.responseText);
+		}
+	});
+}
+
+function getMenuItemsFromDb() {
+	$.ajax({
+		url: "php/menu.php",
+		dataType: "json",
+		data: {
+			allMenuItems: 1
+		},
+		success: function(data) {
+			console.log("Success of getMenuItemsFromDb function", data);
+		},
+		error: function(data) {
+			console.log("error of getMenuItemsFromDb function", data, data.responseText);
 		}
 	});
 }

@@ -63,6 +63,11 @@ class Queries extends PDOHelper {
 		$sql = "INSERT INTO menu_links(title, path, weight, plid) VALUES (:title, :path, :weight, :plid)";
 		return $this->query($sql, $menuItem);
 	}
+
+	public function getAllMenuItems() {
+		$sql = "SELECT * FROM menu_links ORDER BY weight ASC";
+		return $this->query($sql);
+	}
 }
 
 
