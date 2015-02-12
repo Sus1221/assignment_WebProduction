@@ -24,11 +24,10 @@
 			"<p>" + data[0].name + "</p>" +
 			"<p>" + data[0].street + "</p>" +
 			"<p>" + data[0].postalcode + " " + data[0].city + "</p>"
-				
 			);
 		datasRight.append(
-			"<p>" + data[0].phone + "</p>"+
-			"<p>" + data[0].email + "</p>"
+			"<p><a href='tel:" + data[0].phone + "'>" + data[0].phone + "</a></p>"+
+			"<p><a href='mailto:" + data[0].email + "'>" + data[0].email +"</a></p>"
 			);
 
 		$("#footerAppendBoxLeft").html(datasLeft);
