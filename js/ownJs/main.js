@@ -5,7 +5,7 @@ $(function() {
 	$("section.home").show();
 	onPopAndStart();
 	createSelectForArticleMenu();
-	createMenuSelect();
+	// createMenuSelect();
 	getFooterData();
 	addEventListener("popstate",onPopAndStart);
 	getMenuItemsFromDb();
