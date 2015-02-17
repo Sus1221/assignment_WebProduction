@@ -6,16 +6,17 @@
 		//create array to store names of a-tags in header nav
 		var opsToSelectCat = [];
 		//grab values of each a-tag in header nav and push to array
+		console.log("found: ", $("header nav ul li:not(.disabled, .liNotInSelect) a"));
 		$("header nav ul li:not(.disabled, .liNotInSelect) a").each(function() {
-			opsToSelectCat.push($(this).text());
+			opsToSelectCat.push($(this).attr("href"));
 		});
+		console.log("Dett är opsToSelectCat: ", opsToSelectCat);
 		//create select
-		var select = $("<select></select>");
+		var select = $("<select class='categorySelect'></select>");
 		//Add a choice if the article should be put at top-level
-		select.append("<option>Toppnivå</option>");
 		//create option tag for each item in array, push them into the select-tag
 		for (var i = 0; i < opsToSelectCat.length ; i++) {
-			select.append("<option>"+opsToSelectCat[i]+"</option>");
+			select.append("<option value='"+opsToSelectCat[i]+"'>"+opsToSelectCat[i]+"</option>");
 		}
 		//Replace content in div with newly created select
 		$("#divForSelectInNewArticleForm").html(select);

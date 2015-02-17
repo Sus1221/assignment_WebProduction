@@ -4,11 +4,11 @@ $(function() {
 	$("section").hide();
 	$("section.home").show();
 	onPopAndStart();
-	createSelectForArticleMenu();
 	// createMenuSelect();
 	getFooterData();
 	addEventListener("popstate",onPopAndStart);
 	getMenuItemsFromDb();
+	// createSelectForArticleMenu();
 
 
 	//When submitting a new article
@@ -18,6 +18,7 @@ $(function() {
 		article.heading = $("#articleHeading").val();
 		article.body = $("#articleBody").val();
 		article.picWay = $("#pictureInput").val();
+		article.selectedCat = $("#newArticleForm .categorySelect :selected").val();
 		console.log("article to submit data:", article);
 		//empty form
 		this.reset();
@@ -123,15 +124,15 @@ $(function() {
 		return false;
 	});
 
-	$("#addNewMenu").submit(function() {
-		var menuInfo = {};
-		menuInfo.title = $("#menuNameInput").val();
-		menuInfo.path = $("#menuPathInput").val();
-		menuInfo.plid = $("#menuParentInput").val();
-		menuInfo.weight = $("#menuWeightInput").val();
-		console.log("menuInfo object: ", menuInfo);
-		sendNewMenuInfo(menuInfo);
-		this.reset();
-		return false;
-	});
+	// $("#addNewMenu").submit(function() {
+	// 	var menuInfo = {};
+	// 	menuInfo.title = $("#menuNameInput").val();
+	// 	menuInfo.path = $("#menuPathInput").val();
+	// 	menuInfo.plid = $("#menuParentInput").val();
+	// 	menuInfo.weight = $("#menuWeightInput").val();
+	// 	console.log("menuInfo object: ", menuInfo);
+	// 	sendNewMenuInfo(menuInfo);
+	// 	this.reset();
+	// 	return false;
+	// });
 });

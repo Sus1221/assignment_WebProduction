@@ -1,22 +1,21 @@
 //for select in create-new-article-form
-function createMenuSelect(){
-	var parentOptions = [];
+// function createMenuSelect(){
+// 	var parentOptions = [];
 
-	$("header nav ul li:not(.disabled, .liNotInSelect) a").each(function() {
-		parentOptions.push($(this).text());
-	});
+// 	$("header nav ul li:not(.disabled, .liNotInSelect) a").each(function() {
+// 		parentOptions.push($(this).text());
+// 	});
 
-	var select = $("<select></select>");
-	select.append("<option>Toppnivå</option>");
+// 	var select = $("<select></select>");
 
-	for(var i = 0; i < parentOptions.length; i++) {
-		select.append("<option>"+parentOptions[i]+"</option>");
-	}
+// 	for(var i = 0; i < parentOptions.length; i++) {
+// 		select.append("<option>"+parentOptions[i]+"</option>");
+// 	}
 
-	//Replace content in select with options
-	$("#divForSelectParentForMenuItem").html(select);
+// 	//Replace content in select with options
+// 	$("#divForSelectParentForMenuItem").html(select);
 
-}
+// }
 
 //When user created new menu-item
 function sendNewMenuInfo(menuObject) {
@@ -46,6 +45,7 @@ function getMenuItemsFromDb() {
 		success: function(data) {
 			console.log("Success of getMenuItemsFromDb function", data);
 			buildMenu(data);
+			createSelectForArticleMenu();
 		},
 		error: function(data) {
 			console.log("error of getMenuItemsFromDb function", data, data.responseText);
