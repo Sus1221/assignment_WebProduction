@@ -45,7 +45,6 @@ function getMenuItemsFromDb() {
 		success: function(data) {
 			console.log("Success of getMenuItemsFromDb function", data);
 			buildMenu(data);
-			createSelectForArticleMenu();
 		},
 		error: function(data) {
 			console.log("error of getMenuItemsFromDb function", data, data.responseText);
@@ -109,6 +108,8 @@ function buildMenu(menusFromDb) {
               '</li>');
 	//In header nav - replace all content with new menu-ul
 	nav.html(mainMenuHtml);
+	//Now that menu is in place - run function that creates select to put in create-new-article-form
+	createSelectForArticleMenu();
 }
 
 

@@ -31,16 +31,30 @@ class Queries extends PDOHelper {
 		$articleInfo[":user_id"] = $this->user["user_id"];
 		//create sql-question
 
-		//If it doesn't exist, insert picinfo to db
-		$sql1 = "INSERT INTO images(path) VALUES (:path);";
-		$parameters = array(":path" => $articleInfo["picWay"]);
+		//Insert picinfo to db
+		$sql1 = "INSERT INTO images(path, user_id) VALUES (:path, :user_id);";
+		$parameters1 = array(":path" => $articleInfo["picWay"], ":user_id" => $this->user["user_id"]);
+		$this->query($sql1, $parameters1);
 
-		//select senaste bilden
+		//select latest image
+		$sql2 = "SELECT * FROM images ORDER BY uploaded DESC limit 1;";
+		$rightImage = $this->query($sql2);
+
+		//find right category in categories table
+		$sql3 = "SELECT * FROM CATEGORIES WHERE NAME = :name";
+		$parameters3 = array(":name" => $articleInfo["selectedCat"]);
+		$rightCategory = $this->query($sql3, $parameters3);
 
 		//insert page to db
-		$sql2 = "INSERT INTO pages(title, body, user_id, img_id ) VALUES (:heading, :body, :user_id, :);";
-		//run function"query", send in query above and $articleInfo
-		return $this->query($sql2, $articleInfo);
+		$sql4 = "INSERT INTO pages(title, body, user_id, img_id, catId) VALUES (:heading, :body, :user_id, :img_id, :cat_id);";
+		$parameters4 = array(":heading" => $articleInfo["heading"],
+							 ":body" => $articleInfo["body"],
+							 ":user_id" => $this->user["user_id"],
+							 ":img_id" => $rightImage[0]["iid"],
+							 ":cat_id" => $rightCategory[0]["id"]
+							 );
+		//Finally, insert new page
+		return $this->query($sql4, $parameters4);
 	}
 
 	public function getAllArticles() {

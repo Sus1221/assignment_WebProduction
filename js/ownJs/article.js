@@ -6,11 +6,10 @@
 		//create array to store names of a-tags in header nav
 		var opsToSelectCat = [];
 		//grab values of each a-tag in header nav and push to array
-		console.log("found: ", $("header nav ul li:not(.disabled, .liNotInSelect) a"));
 		$("header nav ul li:not(.disabled, .liNotInSelect) a").each(function() {
 			opsToSelectCat.push($(this).attr("href"));
 		});
-		console.log("Dett är opsToSelectCat: ", opsToSelectCat);
+		console.log("Detta är alla opsToSelectCat: ", opsToSelectCat);
 		//create select
 		var select = $("<select class='categorySelect'></select>");
 		//Add a choice if the article should be put at top-level
