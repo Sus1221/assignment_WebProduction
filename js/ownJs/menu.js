@@ -74,7 +74,7 @@ function buildMenu(menusFromDb) {
 		}
 			else {
 			//parent exists
-			var menuLink = $('<li data-mlid="ml_'+currentLink.mlid+'"><a href="'+currentLink.path+'">'+currentLink.title+'</a></li>');
+			var menuLink = $('<li data-mlid="ml_'+currentLink.ml_id+'"><a href="'+currentLink.path+'">'+currentLink.title+'</a></li>');
 			//if item doesn't have parent
 			if(!parentMlid) {
 				mainMenuHtml.append(menuLink);
@@ -88,11 +88,11 @@ function buildMenu(menusFromDb) {
 					//append it to parent link 
 					mainMenuHtml.find('li[data-mlid="'+parentMlid+'"]').append(newSubMenu);
 				}
-			mainMenuHtml.find('li[data-mlid_"'+parentMlid+'"]').append(menuLink);
+			mainMenuHtml.find('li[data-mlid="'+parentMlid+'"]').append(menuLink);
 		}
 		menusFromDb.shift();
-		console.log("menusFromDb", menusFromDb);
 		}
+		console.log("menusFromDb", menusFromDb);
 	}
 
 	mainMenuHtml.append('<li role="presentation" class="active liNotInSelect liInNavConstant"><a href="home">Hem</a></li>'+
