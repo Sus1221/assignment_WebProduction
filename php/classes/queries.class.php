@@ -96,6 +96,17 @@ class Queries extends PDOHelper {
 		$sql = "SELECT * FROM menu_links ORDER BY weight ASC;";
 		return $this->query($sql);
 	}
+
+	public function getAllAtriclesUnderOneCat($nameOfCat) {
+		//Get the right category item
+		$sql1 = "SELECT * FROM categories WHERE name = :name";
+		$parameters1 = array(":name" => $nameOfCat);
+		$rightCatObject = $this->query($sql1, $parameters1);
+		//get all articles belonging to chosen category
+		$sql2 = "SELECT * FROM pages WHERE catId = :cat_id";
+		$parameters2 = array(":cat_id" => $rightCatObject[0]["id"]);
+		return $this->query($sql2, $parameters2);
+	}
 }
 
 

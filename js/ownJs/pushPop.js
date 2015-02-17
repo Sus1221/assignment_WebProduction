@@ -27,7 +27,12 @@
 			
 		$("section").hide();
 		$("section."+endHref).show();
+		//if all articles is required
 		if(endHref == "all"){
 			getAllArticles();
+		//if one specific category of articles is required
+		}else if(endHref != "home" && endHref != "admin"){
+			console.log("Time to ajax for specific cat.");
+			getArticlesInOneCategory(endHref);
 		}
 	}

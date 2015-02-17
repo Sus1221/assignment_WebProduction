@@ -155,3 +155,37 @@
 		console.log("result: ",result);
 		$(".modal-body").html(result);
 	}
+
+	function getArticlesInOneCategory(requestParam) {
+		//global variable to store chosen category
+		requestParam = requestParam;
+		console.log("start of getArticlesInOneCategory function");
+		$.ajax({
+			url: "php/article.php",
+			dataType: "json",
+			data: {
+				"articleCatToSearchFor": requestParam
+			},
+			success: function(data) {
+				console.log("success of getArticlesInOneCategory function", data);
+				printInRightSection(data);
+			},
+			error: function(data) {
+				console.log("Error of getArticlesInOneCategory function",data,data.responseText);
+			}
+		});
+	}
+
+	function printInRightSection(articles) {
+		console.log("start of printInRightSection function", articles);
+		var correctSection = $("section."+requestParam);
+		console.log("correct section: ", correctSection);
+		correctSection.html("");
+		//Print body and created of each article
+		for (var i = 0; i < articles.length ;i++) {
+			correctSection.append("<p>" + articles[i].title + "</p>");
+			correctSection.append("<p>" + articles[i].body + "</p>");
+			correctSection.append("<p>" + (articles[i].created).substring(0,16) + "</p>");
+			correctSection.append("<hr>");
+		}
+	}

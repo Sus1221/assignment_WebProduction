@@ -28,3 +28,6 @@ if(isset($_REQUEST["search"])) {
 	echo(json_encode($article_query->search($_REQUEST["search"])));
 }
 
+if(isset($_REQUEST["articleCatToSearchFor"])) {
+	echo(json_encode($article_query->getAllAtriclesUnderOneCat($_REQUEST["articleCatToSearchFor"])));
+}
