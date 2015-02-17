@@ -37,9 +37,11 @@
         <div class="container">
           <div class="row">
             <section class="home">
-              <p>hej home</p>
+              <p>Vi brinner för tåg från alla tider och alla former i Skåne. Etiam iaculis velit sed purus aliquam ullamcorper. Fusce ac elit nec neque efficitur pulvinar id vitae mi. Donec neque diam, pretium sed mollis sit amet, commodo eget tellus. Ut non ante non sapien scelerisque efficitur. Ut et sapien arcu. Maecenas magna nunc, maximus nec nulla eget, euismod semper erat. Mauris lectus risus, feugiat eu velit ac, placerat sagittis elit. Suspendisse elit nisl, tincidunt vulputate turpis a, vestibulum lobortis velit. Vestibulum gravida diam vitae fermentum vehicula. Mauris at nibh turpis. Quisque vitae velit sit amet ante lobortis pulvinar ac sed magna.</p>
             </section>
             <section class="all">
+            </section>
+            <section class="traintypes">
             </section>
             <section class="electrical">
               <p>hej elfordon</p>
@@ -50,7 +52,7 @@
             <section class="outings">
               <p>hej outings</p>
             </section>
-            <section class="contact">
+            <section class="readercontact">
               <p>hej contact</p>
             </section>
             <section class="admin">
@@ -76,74 +78,70 @@
             </section>
           </div>
           <div class="row">
-            <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="addNewMenu">
-              <h1>För att redigera meny</h1>
-              <div class="form-group">
-                <label for="menuNameInput">Namn på ny meny-punkt:</label>
-                <input class="form-control" id="menuNameInput" name="menuItemInput" type="text" required>
-              </div>
-              <div class="form-group">
-                <label for="menuPathInput">Länkväg:</label>
-                <input class="form-control" id="menuPathInput" name="menuItemInput" type="text" required>
-              </div>
-              <div class="form-group">
-                <label for="menuParentInput">Välj ev. meny-punkt att ligga under</label>
-                <select id="menuParentInput" name="menuParentInput">
-                    <option value="">Ingen</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="menuWeightInput">Välj hur hög rank menypunkten ska ha:</label>
-                <input class="form-control" type="number" name="menuWeightInput" id="menuWeightInput" min="0" max="10">
-              </div>
-              <button type="submit" class="btn btn-default">Lägg till</button>
-            </form>
-            <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="footerForm">
-              <h1>För att uppdatera sidfot</h1>
-              <div class="form-group">
-                <label for="footerName">Namn:</label>
-                <input id="footerName" name="footerName" type="text" class="form-control" placeholder="Namn..." required>
-              </div>
-              <div class="form-group">
-                <label for="footerStreet">Gatuadress:</label>
-                <input id="footerStreet" name="footerStreet" type="text" class="form-control" placeholder="Gatuadress.." required>
-              </div>
-              <div class="form-group">
-                <label for="footerZip">Postnummer:</label>
-                <input id="footerZip" name="footerZip" type="text" class="form-control" placeholder="Postnummer.." required>
-              </div>
-              <div class="form-group">
-                <label for="footerCity">Postort:</label>
-                <input id="footerCity" name="footerCity" type="text" class="form-control" placeholder="Postort.." required>
-              </div>
-              <div class="form-group">
-                <label for="footerPhone">Telefonnummer:</label>
-                <input id="footerPhone" name="footerPhone" type="tel" class="form-control" placeholder="Telefonnummer.." required>
-              </div>
-              <div class="form-group">
-                <label for="footerEmail">Mailadress:</label>
-                <input id="footerEmail" name="footerEmail" type="email" class="form-control" placeholder="Mailadress.." required>
-              </div>
-                <button class="btn btn-default" type="submit">Uppdatera</button>
-            </form>
-          </div>
-        </div>
-        <div class="emptySpace"></div>
-        <div class="container">
-          <div class="row">
-            <form class="col-xs-6 col-sm-6 col-md-4 col-lg-4" id="deleteArticleForm">
-              <div class="form-group">
-                <button class="btn btn-default" id="deleteArticleButton">Fourmulär för att ta bort ett inlägg</button>
-              </div>
-            </form>
-            <div id="editFormDiv">
-              <form class="col-xs-6 col-sm-6 col-md-8 col-lg-8" id="editArticleForm">
-                <button class="btn btn-default" id="editArticleButton">Formulär för att redigera ett inlägg</button>
+            <section class="admin">
+              <!-- <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="addNewMenu">
+                <h1>För att redigera meny</h1>
+                <div class="form-group">
+                  <label for="menuNameInput">Namn på ny meny-punkt:</label>
+                  <input class="form-control" id="menuNameInput" name="menuItemInput" type="text" required>
+                </div>
+                <div class="form-group">
+                  <label for="menuPathInput">Länkväg:</label>
+                  <input class="form-control" id="menuPathInput" name="menuItemInput" type="text" required>
+                </div>
+                <div class="form-group">
+                  <label for="menuParentInput">Välj ev. meny-punkt att ligga under</label>
+                  <select id="menuParentInput" name="menuParentInput">
+                      <option value="">Ingen</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="menuWeightInput">Välj hur hög rank menypunkten ska ha:</label>
+                  <input class="form-control" type="number" name="menuWeightInput" id="menuWeightInput" min="0" max="10">
+                </div>
+                <button type="submit" class="btn btn-default">Lägg till</button>
+              </form> -->
+              <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="footerForm">
+                <h1>För att uppdatera sidfot</h1>
+                <div class="form-group">
+                  <label for="footerName">Namn:</label>
+                  <input id="footerName" name="footerName" type="text" class="form-control" placeholder="Namn..." required>
+                </div>
+                <div class="form-group">
+                  <label for="footerStreet">Gatuadress:</label>
+                  <input id="footerStreet" name="footerStreet" type="text" class="form-control" placeholder="Gatuadress.." required>
+                </div>
+                <div class="form-group">
+                  <label for="footerZip">Postnummer:</label>
+                  <input id="footerZip" name="footerZip" type="text" class="form-control" placeholder="Postnummer.." required>
+                </div>
+                <div class="form-group">
+                  <label for="footerCity">Postort:</label>
+                  <input id="footerCity" name="footerCity" type="text" class="form-control" placeholder="Postort.." required>
+                </div>
+                <div class="form-group">
+                  <label for="footerPhone">Telefonnummer:</label>
+                  <input id="footerPhone" name="footerPhone" type="tel" class="form-control" placeholder="Telefonnummer.." required>
+                </div>
+                <div class="form-group">
+                  <label for="footerEmail">Mailadress:</label>
+                  <input id="footerEmail" name="footerEmail" type="email" class="form-control" placeholder="Mailadress.." required>
+                </div>
+                  <button class="btn btn-default" type="submit">Uppdatera</button>
               </form>
-            </div>
+              <form class="col-xs-6 col-sm-6 col-md-4 col-lg-4" id="deleteArticleForm">
+                <div class="form-group">
+                  <button class="btn btn-default" id="deleteArticleButton">Fourmulär för att ta bort ett inlägg</button>
+                </div>
+              </form>
+              <div id="editFormDiv">
+                <form class="col-xs-6 col-sm-6 col-md-8 col-lg-8" id="editArticleForm">
+                  <button class="btn btn-default" id="editArticleButton">Formulär för att redigera ett inlägg</button>
+                </form>
+              </div>
+            </section>
           </div>
         </div>
-
       </main>
       <div class="navbar navbar-default navbar-fixed-bottom" id="footer-wrapper">
         <footer class="container">

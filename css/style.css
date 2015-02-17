@@ -57,3 +57,14 @@ footer div {
   background-color: #334d1a;
   color: #ffffcc;
 }
+section {
+  margin-top: 10vh;
+  padding: 10vh;
+  background: #fffff4;
+}
+body {
+  background-image: url('../Pics/Rails-large.jpg');
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
