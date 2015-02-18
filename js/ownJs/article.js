@@ -9,7 +9,6 @@
 		$("header nav ul li:not(.disabled, .liNotInSelect) a").each(function() {
 			opsToSelectCat.push($(this).attr("href"));
 		});
-		console.log("Detta är alla opsToSelectCat: ", opsToSelectCat);
 		//create select
 		var select = $("<select class='categorySelect'></select>");
 		//Add a choice if the article should be put at top-level
@@ -65,6 +64,7 @@
 			$("section.all").append("<p>" + data[i].title + "</p>");
 			$("section.all").append("<p>" + data[i].body + "</p>");
 			$("section.all").append("<p>" + (data[i].created).substring(0,16) + "</p>");
+			$("section.all").append("<img src='" + data[i].path + "'>");
 			$("section.all").append("<hr>");
 		}
 	}
@@ -139,7 +139,6 @@
 	}
 
 	function printSearchResult(response) {
-		console.log(response,"w");
 		$('#mySearchModal').modal('show');
 		var result = $("<div/>");
 		if(response.length > 0){
@@ -156,10 +155,10 @@
 		$(".modal-body").html(result);
 	}
 
+	var rightCat;
 	function getArticlesInOneCategory(requestParam) {
-		//global variable to store chosen category
-		requestParam = requestParam;
-		console.log("start of getArticlesInOneCategory function");
+		//give variable at bottom-level value of requestParam
+		rightCat = requestParam;
 		$.ajax({
 			url: "php/article.php",
 			dataType: "json",
@@ -176,10 +175,10 @@
 		});
 	}
 
+
+
 	function printInRightSection(articles) {
-		console.log("start of printInRightSection function", articles);
-		var correctSection = $("section."+requestParam);
-		console.log("correct section: ", correctSection);
+		var correctSection = $("section."+rightCat);
 		correctSection.html("");
 		//Print body and created of each article
 		for (var i = 0; i < articles.length ;i++) {

@@ -135,4 +135,28 @@ $(function() {
 	// 	this.reset();
 	// 	return false;
 	// });
+
+	//When submitting new footer-data
+	$('#footerForm').submit(function() {
+
+		//create object for footerinfo
+		var footerInfo = {};
+
+		//grab footerinfo from form inputs
+		footerInfo.name = $("#footerName").val();
+		footerInfo.street = $("#footerStreet").val();
+		footerInfo.zip = $("#footerZip").val();
+		footerInfo.city = $("#footerCity").val();
+		footerInfo.phone = $("#footerPhone").val();
+		footerInfo.email = $("#footerEmail").val();
+		console.log("Submit function for footer form" ,footerInfo);
+
+		//empty the form at submit
+		this.reset();
+		//run functions to send footerInfo to db and update footer
+		footerInfoToDb(footerInfo);
+		getFooterData();
+		return false;
+
+	});
 });

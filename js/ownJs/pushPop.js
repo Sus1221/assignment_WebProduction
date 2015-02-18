@@ -14,14 +14,12 @@
 		if (pageName.length === 0) {
 			pageName = "home";
 		}
-		console.log(pageName);
 		//Hide all sections, then show the right one
 		displaySection(pageName);
 	}
 
 	function displaySection(endHref) {
 		//adding/removing active class
-		console.log("displaySection", endHref);
 		$("#headerNavDiv li a").parent("li").removeClass("active");
 		$('#headerNavDiv li a[href='+ endHref +']').parent("li").addClass("active");
 			
@@ -32,7 +30,6 @@
 			getAllArticles();
 		//if one specific category of articles is required
 		}else if(endHref != "home" && endHref != "admin"){
-			console.log("Time to ajax for specific cat.");
 			getArticlesInOneCategory(endHref);
 		}
 	}

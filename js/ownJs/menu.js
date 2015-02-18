@@ -19,7 +19,6 @@
 
 //When user created new menu-item
 function sendNewMenuInfo(menuObject) {
-	console.log("sendNewMenuInfo object: ", menuObject);
 	$.ajax({
 		url: "php/menu.php",
 		dataType: "json",
@@ -53,17 +52,14 @@ function getMenuItemsFromDb() {
 }
 
 function buildMenu(menusFromDb) {
-	console.log("menusFromDb", menusFromDb);
 	var nav = $("header nav");
 	var mainMenuHtml = $('<ul class="nav nav-pills" id="bottomUlInNav"/>');
 	//add menu item "home"
 	mainMenuHtml.append('<li role="presentation" class="active liNotInSelect liInNavConstant"><a href="home">Hem</a></li>');
-	console.log("mainMenuHtml", mainMenuHtml);
 	//sort menuItems by weight, low to high
 	menusFromDb.sort(function(x,y){
 		return x.weight > y.weight;
 	});
-	console.log("menus after sorting: ", menusFromDb);
 	//while there are menuItems left in menusFromDb
 	while (menusFromDb.length > 0) {
 		var currentLink = menusFromDb[0];
@@ -98,7 +94,6 @@ function buildMenu(menusFromDb) {
 		//remove item[0] in array
 		menusFromDb.shift();
 		}
-		console.log("menusFromDb", menusFromDb);
 	}
 	//Always append to ul these ones: "Home", "All articles, "Adminfunctions"
 	mainMenuHtml.append(

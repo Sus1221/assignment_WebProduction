@@ -58,7 +58,7 @@ class Queries extends PDOHelper {
 	}
 
 	public function getAllArticles() {
-		$sql = "SELECT * FROM pages ORDER BY created DESC;";
+		$sql = "SELECT title, body, created, path FROM pages, images WHERE pages.img_id = images.iid;";
 		return $this->query($sql);
 	}
 

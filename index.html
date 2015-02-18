@@ -56,7 +56,7 @@
             <section class="readercontact">
               <p>hej contact</p>
             </section>
-            <section class="admin">
+            <section class="admin row">
               <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="newArticleForm">
                 <h1>För nya inlägg</h1>
                 <p>Välj vilken rubrik den nya artikeln ska ligga under i menyn:</p>
@@ -79,7 +79,7 @@
             </section>
           </div>
           <div class="row">
-            <section class="admin">
+            <section class="admin row">
               <!-- <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="addNewMenu">
                 <h1>För att redigera meny</h1>
                 <div class="form-group">
@@ -146,14 +146,16 @@
       </main>
       <div class="navbar navbar-default navbar-fixed-bottom" id="footer-wrapper">
         <footer class="container">
-          <adress class="navbar-left" id="footerAppendBoxLeft"></adress>
-          <adress class="navbar-left" id="footerAppendBoxRight"></adress>
-          <form class="navbar-form navbar-right" id="searchForm" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" id="searchField" name="searchField" placeholder="Sök på artikel.." required>
-            </div>
-            <button type="submit" class="btn btn-default navbar-btn">Sök</button>
-          </form>
+          <div class="row">
+            <adress class="navbar-left" id="footerAppendBoxLeft"></adress>
+            <adress class="navbar-left" id="footerAppendBoxRight"></adress>
+            <form class="navbar-form navbar-right" id="searchForm" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="searchField" name="searchField" placeholder="Sök på artikel.." required>
+              </div>
+              <button type="submit" class="btn btn-default navbar-btn">Sök</button>
+            </form>
+          </div>
         </footer>
       </div>
         <div class="modal fade" id="mySearchModal">
