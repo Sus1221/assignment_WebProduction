@@ -103,7 +103,7 @@ class Queries extends PDOHelper {
 		$parameters1 = array(":name" => $nameOfCat);
 		$rightCatObject = $this->query($sql1, $parameters1);
 		//get all articles belonging to chosen category
-		$sql2 = "SELECT * FROM pages WHERE catId = :cat_id";
+		$sql2 = "SELECT title, body, created, path FROM pages, images WHERE pages.catId = :cat_id && pages.img_id = images.iid;";
 		$parameters2 = array(":cat_id" => $rightCatObject[0]["id"]);
 		return $this->query($sql2, $parameters2);
 	}

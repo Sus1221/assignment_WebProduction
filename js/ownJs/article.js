@@ -185,6 +185,7 @@
 			correctSection.append("<p>" + articles[i].title + "</p>");
 			correctSection.append("<p>" + articles[i].body + "</p>");
 			correctSection.append("<p>" + (articles[i].created).substring(0,16) + "</p>");
+			correctSection.append("<img src='" + articles[i].path + "'>");
 			correctSection.append("<hr>");
 		}
 	}
