@@ -1,15 +1,11 @@
 $(function() {
 
-	//To begin with, hide all sections but the home one
 	$("section").hide();
 	$("section.home").show();
 	onPopAndStart();
-	// createMenuSelect();
 	getFooterData();
 	addEventListener("popstate",onPopAndStart);
 	getMenuItemsFromDb();
-	// createSelectForArticleMenu();
-
 
 	//When submitting a new article
 	$("#newArticleForm").submit(function() {
@@ -26,7 +22,6 @@ $(function() {
 		return false;
 	});
 
-
 	//when user clicks button "Ta bort ett inlägg"
 	$("#deleteArticleButton").on("click", function(event) {
 		$("#deleteArticleForm").html("");
@@ -37,6 +32,7 @@ $(function() {
 				"allArticles": 1
 			},
 			success: function(data) {
+				console.log("Success of deleteArticleAjax1");
 				printToSelect(data);
 			},
 			error: function(data) {

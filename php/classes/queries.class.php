@@ -2,9 +2,6 @@
 
 class Queries extends PDOHelper {
 
-
-	protected $user = array("user_id" => 1);
-
 	//To insert new footer info
 	public function insertFooterInfo($footerData) {
 		//Our sql question
@@ -20,20 +17,12 @@ class Queries extends PDOHelper {
 		return $this->query($sql);
 	}
 
-
-		//$sql = "UPDATE pages SET title = :title, body = :body WHERE pid = :pid;";
-		//$parameters = array(":title" => $article["title"], ":body" => $article["body"], ":pid" => $article["pid"]);
-		//return $this->query($sql, $parameters);
-
-
 	//To insert new article
 	public function insertArticle($articleInfo) {
-		$articleInfo[":user_id"] = $this->user["user_id"];
-		//create sql-question
 
 		//Insert picinfo to db
-		$sql1 = "INSERT INTO images(path, user_id) VALUES (:path, :user_id);";
-		$parameters1 = array(":path" => $articleInfo["picWay"], ":user_id" => $this->user["user_id"]);
+		$sql1 = "INSERT INTO images(path) VALUES (:path);";
+		$parameters1 = array(":path" => $articleInfo["picWay"]);
 		$this->query($sql1, $parameters1);
 
 		//select latest image
@@ -46,10 +35,9 @@ class Queries extends PDOHelper {
 		$rightCategory = $this->query($sql3, $parameters3);
 
 		//insert page to db
-		$sql4 = "INSERT INTO pages(title, body, user_id, img_id, catId) VALUES (:heading, :body, :user_id, :img_id, :cat_id);";
+		$sql4 = "INSERT INTO pages(title, body, img_id, catId) VALUES (:heading, :body, :img_id, :cat_id);";
 		$parameters4 = array(":heading" => $articleInfo["heading"],
 							 ":body" => $articleInfo["body"],
-							 ":user_id" => $this->user["user_id"],
 							 ":img_id" => $rightImage[0]["iid"],
 							 ":cat_id" => $rightCategory[0]["id"]
 							 );
@@ -58,7 +46,7 @@ class Queries extends PDOHelper {
 	}
 
 	public function getAllArticles() {
-		$sql = "SELECT title, body, created, path FROM pages, images WHERE pages.img_id = images.iid;";
+		$sql = "SELECT title, body, created, path, pid FROM pages, images WHERE pages.img_id = images.iid ORDER BY created DESC;";
 		return $this->query($sql);
 	}
 
@@ -81,7 +69,7 @@ class Queries extends PDOHelper {
 	}
 
 	public function search($searchWord) {
-		$sql = "SELECT * FROM pages WHERE title LIKE :word;";
+		$sql = "SELECT * FROM pages WHERE title LIKE :word ORDER BY created DESC;";
 		$parameters = array(":word" => '%'.$searchWord.'%');
 		return $this->query($sql, $parameters);
 	}
@@ -103,7 +91,7 @@ class Queries extends PDOHelper {
 		$parameters1 = array(":name" => $nameOfCat);
 		$rightCatObject = $this->query($sql1, $parameters1);
 		//get all articles belonging to chosen category
-		$sql2 = "SELECT title, body, created, path FROM pages, images WHERE pages.catId = :cat_id && pages.img_id = images.iid;";
+		$sql2 = "SELECT title, body, created, path FROM pages, images WHERE pages.catId = :cat_id && pages.img_id = images.iid ORDER BY created DESC;";
 		$parameters2 = array(":cat_id" => $rightCatObject[0]["id"]);
 		return $this->query($sql2, $parameters2);
 	}

@@ -88,6 +88,7 @@
 	}
 
 	function sendDeleteRequest(object) {
+		console.log("sendDeleteRequest function at start", object);
 		$.ajax({
 			url: "php/article.php",
 			dataType: "json",
