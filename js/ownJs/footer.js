@@ -7,9 +7,7 @@
 					"getFooterData" : 1
 				},
 				success: function(data) {
-					console.log("Success for getFooterData", data);
 					appendToFooter(data);
-
 				},
 				error: function(data) {
 					console.log("Error for getFooterData", data, data.responseText);
@@ -36,8 +34,6 @@
 
 	//sends footerData grabbed in form to DB
 	function footerInfoToDb(footerInfo) {
-
-		console.log("1",footerInfo);
 			$.ajax({
 				url: "php/footer.php",
 				dataType: "json",
@@ -45,9 +41,7 @@
 					"footerDataInput" : footerInfo
 				},
 				success: function(data) {
-					console.log("Success for footerInfoToDb", data);
 					getFooterData();
-
 				},
 				error: function(data) {
 					console.log("Error for footerInfoToDb", data, data.responseText);

@@ -17,10 +17,11 @@
     <header class="container-fluid">
       <div class="row">
         <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-          <a href="home"><img src="Pics/logo4.jpg" class="img-responsive" alt="Logo" href="index.html"></a>
+          <a href="home"><img src="Pics/logo4.jpg" class="img-responsive" id="logo" alt="Logo" href="index.html"></a>
         </div>
-        <div id="headerNavDiv" class="col-xs-8 col-sm-8 col-md-10 col-lg-10">
+        <div id="headerNavDiv" class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
           <nav>
+            <div id="bs-example-navbar-collapse-1"/>
             <!-- <ul class="nav nav-pills" id="bottomUlInNav">
               <li role="presentation" class="active liNotInSelect liInNavConstant"><a href="home">Hem</a></li>
               <li role="presentation" class="liNotInSelect liInNavConstant"><a href="all">Alla artiklar</a></li>
@@ -36,8 +37,14 @@
       <main>
         <div class="container">
           <div class="row">
-            <section class="home">
+            <section class="home row">
               <p>Vi brinner för tåg från alla tider och alla former i Skåne. Etiam iaculis velit sed purus aliquam ullamcorper. Fusce ac elit nec neque efficitur pulvinar id vitae mi. Donec neque diam, pretium sed mollis sit amet, commodo eget tellus. Ut non ante non sapien scelerisque efficitur. Ut et sapien arcu. Maecenas magna nunc, maximus nec nulla eget, euismod semper erat. Mauris lectus risus, feugiat eu velit ac, placerat sagittis elit. Suspendisse elit nisl, tincidunt vulputate turpis a, vestibulum lobortis velit. Vestibulum gravida diam vitae fermentum vehicula. Mauris at nibh turpis. Quisque vitae velit sit amet ante lobortis pulvinar ac sed magna.</p>
+              <form class="navbar-form navbar-right col-xs-4 col-sm-4 col-md-4 col-lg-4" id="searchForm" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="searchField" name="searchField" placeholder="Sök på artikel.." required>
+                </div>
+                <button type="submit" class="btn btn-default navbar-btn">Sök</button>
+              </form>
             </section>
             <section class="all">
             </section>
@@ -136,7 +143,7 @@
                 </div>
               </form>
               <div id="editFormDiv">
-                <form class="col-xs-6 col-sm-6 col-md-8 col-lg-8" id="editArticleForm">
+                <form class="col-xs-6 col-sm-6 col-md-4 col-lg-4" id="editArticleForm">
                   <button class="btn btn-default" id="editArticleButton">Formulär för att redigera ett inlägg</button>
                 </form>
               </div>
@@ -144,35 +151,29 @@
           </div>
         </div>
       </main>
-      <div class="navbar navbar-default navbar-fixed-bottom" id="footer-wrapper">
-        <footer class="container">
-          <div class="row">
-            <adress class="navbar-left" id="footerAppendBoxLeft"></adress>
-            <adress class="navbar-left" id="footerAppendBoxRight"></adress>
-            <form class="navbar-form navbar-right" id="searchForm" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" id="searchField" name="searchField" placeholder="Sök på artikel.." required>
-              </div>
-              <button type="submit" class="btn btn-default navbar-btn">Sök</button>
-            </form>
-          </div>
-        </footer>
+      <div class="container">
+        <div class="navbar navbar-default navbar-fixed-bottom" id="footer-wrapper">
+          <footer class="row">
+              <adress class="navbar-left col-xs-4 col-sm-4 col-md-4 col-lg-4" id="footerAppendBoxLeft"></adress>
+              <adress class="navbar-left col-xs-4 col-sm-4 col-md-4 col-lg-4" id="footerAppendBoxRight"></adress>
+          </footer>
+        </div>
       </div>
-        <div class="modal fade" id="mySearchModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Sökresultat</h4>
-              </div>
-              <div class="modal-body">
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
+      <div class="modal fade" id="mySearchModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Sökresultat</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
+      </div>
     </div>
   </body>
 </html>

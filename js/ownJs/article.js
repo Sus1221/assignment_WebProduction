@@ -22,7 +22,6 @@
 
 	//function to send new article to db
 	function articleToDb(article) {
-		console.log("start of articleToDb", article);
 		$.ajax({
 			url: "php/article.php",
 			dataType: "json",
@@ -30,7 +29,6 @@
 				"articleInfo" : article
 			},
 			success: function(data) {
-				console.log("Success for articleToDb", data);
 			},
 			error: function(data) {
 				console.log("Error for articleToDb", data, data.responseText);
@@ -46,7 +44,6 @@
 				"allArticles": 1
 			},
 			success: function(data) {
-				console.log("Success of getAllArticles", data);
 				printArticles(data);
 			},
 			error: function(data) {
@@ -56,7 +53,6 @@
 	}
 
 	function printArticles(data) {
-		console.log("printArticles",data);
 		//Empty section
 		$("section.all").html("");
 		//Print body and created of each article
@@ -99,7 +95,6 @@
 				"deleteThis": object
 			},
 			success: function(data) {
-				console.log("success if sendDeleteRequest function", data);
 			},
 			error: function(data) {
 				console.log("Error of sendDeleteRequest function",data,data.responseText);
@@ -114,7 +109,6 @@
 				"articleToEdit": object
 			},
 			success: function(data) {
-				console.log("success of sendArticleToEditRequest function", data);
 				articleToEdit = data;
 				printEditForm(data);
 			},
@@ -125,7 +119,6 @@
 	}
 
 	function printEditForm(data) {
-		console.log("printeditform function",data);
 		var editForm = $("<form class='col-xs-6 col-sm-6 col-md-4 col-lg-4' id='editForm'></form>");
 		var input1 = $("<input type='text' id='editedTitle'>");
 		var textarea = $("<textarea type='text' id='editedBody'></textarea>");
@@ -151,7 +144,6 @@
 		}else {
 			result.append("Hittade ingen artikel");
 		}
-		console.log("result: ",result);
 		$(".modal-body").html(result);
 	}
 
@@ -166,7 +158,6 @@
 				"articleCatToSearchFor": requestParam
 			},
 			success: function(data) {
-				console.log("success of getArticlesInOneCategory function", data);
 				printInRightSection(data);
 			},
 			error: function(data) {

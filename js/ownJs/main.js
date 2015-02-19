@@ -19,7 +19,6 @@ $(function() {
 		article.body = $("#articleBody").val();
 		article.picWay = $("#pictureInput").val();
 		article.selectedCat = $("#newArticleForm .categorySelect :selected").val();
-		console.log("article to submit data:", article);
 		//empty form
 		this.reset();
 		//run to send article-data to db
@@ -38,7 +37,6 @@ $(function() {
 				"allArticles": 1
 			},
 			success: function(data) {
-				console.log("success in onclick deleteArticleAjax1",data);
 				printToSelect(data);
 			},
 			error: function(data) {
@@ -50,7 +48,6 @@ $(function() {
 
 	$("#deleteArticleForm").submit(function() {
 		var selectVal = $("#deleteArticleForm select option:selected").data("pageData");
-		console.log("selectVal: ",selectVal);
 		sendDeleteRequest(selectVal);
 		return false;
 	});
@@ -64,7 +61,6 @@ $(function() {
 				"allArticles": 1
 			},
 			success: function(data) {
-				console.log("success in onclick editArticleAjax1",data);
 				printToSelect2(data);
 			},
 			error: function(data) {
@@ -75,18 +71,14 @@ $(function() {
 	});
 
 	$("#editArticleForm").submit(function() {
-		console.log("Submit function for edit article form");
 		var selectVal = $("#editArticleForm select option:selected").data("pageData");
-		console.log("selectVal",selectVal);
 		articleToEditRequest(selectVal);
 		return false;
 	});
 
 	$(document).on("click", "#sendEditedArticleButton", function() {
-		console.log("articleToEdit global:", articleToEdit[0]);
 		articleToEdit[0].title = $("#editedTitle").val();
 		articleToEdit[0].body = $("#editedBody").val();
-		console.log("article to edit no 0: ", articleToEdit[0]);
 		$.ajax({
 			url: "php/article.php",
 			dataType: "json",
@@ -94,7 +86,6 @@ $(function() {
 				"updatedArticle": articleToEdit[0]
 			},
 			success: function(data) {
-				console.log("Success for sending edited article", data);
 				$("#editForm").html("Ändringen lyckades!");
 			},
 			error: function(data) {
@@ -106,7 +97,6 @@ $(function() {
 
 	$("#searchForm").submit(function() {
 		var searchWord = $("#searchField").val();
-		console.log("searchField data", searchWord);
 		$.ajax({
 			url: "php/article.php",
 			dataType: "json",
@@ -114,27 +104,15 @@ $(function() {
 				"search": searchWord
 			},
 			success: function(data) {
-				console.log("Success for search submit", data);
 				printSearchResult(data);
 			},
 			error: function(data) {
 				console.log("error for search submit", data, data.responseText);
 			}
 		});
+		this.reset();
 		return false;
 	});
-
-	// $("#addNewMenu").submit(function() {
-	// 	var menuInfo = {};
-	// 	menuInfo.title = $("#menuNameInput").val();
-	// 	menuInfo.path = $("#menuPathInput").val();
-	// 	menuInfo.plid = $("#menuParentInput").val();
-	// 	menuInfo.weight = $("#menuWeightInput").val();
-	// 	console.log("menuInfo object: ", menuInfo);
-	// 	sendNewMenuInfo(menuInfo);
-	// 	this.reset();
-	// 	return false;
-	// });
 
 	//When submitting new footer-data
 	$('#footerForm').submit(function() {
@@ -149,8 +127,6 @@ $(function() {
 		footerInfo.city = $("#footerCity").val();
 		footerInfo.phone = $("#footerPhone").val();
 		footerInfo.email = $("#footerEmail").val();
-		console.log("Submit function for footer form" ,footerInfo);
-
 		//empty the form at submit
 		this.reset();
 		//run functions to send footerInfo to db and update footer
@@ -159,4 +135,18 @@ $(function() {
 		return false;
 
 	});
+	//when size of window changes
+	$(window).resize(function(e) {
+		//run function to re-style footer
+		removeFooterClass();
+	});
+
+	//add/remove class of footer-wrapper for right appearance
+	function removeFooterClass(){
+		if($(window).width() < 768){
+			$('#footer-wrapper').removeClass('nav-bar-fixed-bottom');
+		} else {
+		$('#footer-wrapper').addClass('nav-bar-fixed-bottom');
+		}
+}
 });

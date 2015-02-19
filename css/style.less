@@ -2,7 +2,7 @@
 @basecolor:#ffffa8;
 @traincolor:#334d1a;
 
-@headingFont:'Cutive Mono', ;
+@headingFont:'Cutive Mono', sans-serif;
 @bodyTextFont:'Bitter', serif;
 
 body {
@@ -28,7 +28,6 @@ header {
 header img {
 	padding: 10px;
 }
-
 
 nav > ul > li.dropdown:hover > ul {
 	display: block;
@@ -76,13 +75,80 @@ section {
 }
 
 body {
-	background-image: url('../Pics/night_train.jpg');
+	background-image: url('../Pics/night_train_xl.jpg');
 	background-size:cover;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 }
 
 section img {
-	height: 30vh;
-	margin-left: 20vh;
+	width:80%;
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+	body {
+		background-image: url('../Pics/night_train_lg.jpg');
+	}
+	#footerAppendBoxRight, #footerAppendBoxLeft {
+		margin: 0px;
+	}
+	#headerNavDiv {
+		margin: 0;
+	}
+	#logo {
+		display: none;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+	body {
+		background-image: url('../Pics/night_train_md.jpg');
+	}
+	#footerAppendBoxRight, #footerAppendBoxLeft {
+		margin: 0px;
+	}
+	#headerNavDiv {
+		margin: 0;
+	}
+	#logo {
+		display: none;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	body {
+		background-image: url('../Pics/night_train_sm.jpg');
+	}
+	#footerAppendBoxRight, #footerAppendBoxLeft {
+		margin: 0px;
+	}
+	#headerNavDiv {
+		margin: 0;
+	}
+	#logo {
+		display: none;
+	}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+	body {
+		background-image: url('../Pics/night_train_xs.jpg');
+	}
+	#footerAppendBoxRight, #footerAppendBoxLeft {
+		margin: 0px;
+	}
+	#headerNavDiv {
+		margin: 0;
+	}
+	//Hide searchform in footer
+	#searchForm	{
+		display: none;
+	}
+	#logo {
+		display: none;
+	}
 }

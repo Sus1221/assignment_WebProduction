@@ -1,21 +1,3 @@
-//for select in create-new-article-form
-// function createMenuSelect(){
-// 	var parentOptions = [];
-
-// 	$("header nav ul li:not(.disabled, .liNotInSelect) a").each(function() {
-// 		parentOptions.push($(this).text());
-// 	});
-
-// 	var select = $("<select></select>");
-
-// 	for(var i = 0; i < parentOptions.length; i++) {
-// 		select.append("<option>"+parentOptions[i]+"</option>");
-// 	}
-
-// 	//Replace content in select with options
-// 	$("#divForSelectParentForMenuItem").html(select);
-
-// }
 
 //When user created new menu-item
 function sendNewMenuInfo(menuObject) {
@@ -26,7 +8,6 @@ function sendNewMenuInfo(menuObject) {
 			"menuToAdd": menuObject
 		},
 		success: function(data) {
-			console.log("success of sendNewMenuInfo function", data);
 		},
 		error: function(data) {
 			console.log("error of sendNewMenuInfo function", data, data.responseText);
@@ -42,7 +23,6 @@ function getMenuItemsFromDb() {
 			allMenuItems: 1
 		},
 		success: function(data) {
-			console.log("Success of getMenuItemsFromDb function", data);
 			buildMenu(data);
 		},
 		error: function(data) {
@@ -52,7 +32,7 @@ function getMenuItemsFromDb() {
 }
 
 function buildMenu(menusFromDb) {
-	var nav = $("header nav");
+	var navDiv = $("#bs-example-navbar-collapse-1");
 	var mainMenuHtml = $('<ul class="nav nav-pills" id="bottomUlInNav"/>');
 	//add menu item "home"
 	mainMenuHtml.append('<li role="presentation" class="active liNotInSelect liInNavConstant"><a href="home">Hem</a></li>');
@@ -102,7 +82,7 @@ function buildMenu(menusFromDb) {
                 '<a class="btn btn-default" href="admin">Adminfunktioner <span class="glyphicon glyphicon-cog"></span></a>'+
               '</li>');
 	//In header nav - replace all content with new menu-ul
-	nav.html(mainMenuHtml);
+	navDiv.html(mainMenuHtml);
 	//Now that menu is in place - run function that creates select to put in create-new-article-form
 	createSelectForArticleMenu();
 }
