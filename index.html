@@ -9,7 +9,8 @@
     <script src="js/ownJs/footer.js"></script>
     <script src="js/ownJs/article.js"></script>
     <script src="js/ownJs/pushPop.js"></script>
- <script src="js/ownJs/menu.js"></script> 
+    <script src="js/ownJs/menu.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href='http://fonts.googleapis.com/css?family=Cutive+Mono|Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
   </head>
@@ -22,13 +23,6 @@
         <div id="headerNavDiv" class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
           <nav>
             <div id="bs-example-navbar-collapse-1"/>
-            <!-- <ul class="nav nav-pills" id="bottomUlInNav">
-              <li role="presentation" class="active liNotInSelect liInNavConstant"><a href="home">Hem</a></li>
-              <li role="presentation" class="liNotInSelect liInNavConstant"><a href="all">Alla artiklar</a></li>
-              <li id="showAdminPage" class="liNotInSelect liInNavConstant">
-                <a class="btn btn-default" href="admin">Adminfunktioner <span class="glyphicon glyphicon-cog"></span></a>
-              </li>
-            </ul> -->
           </nav>
         </div>
       </div>
@@ -87,28 +81,6 @@
           </div>
           <div class="row">
             <section class="admin row">
-              <!-- <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="addNewMenu">
-                <h1>För att redigera meny</h1>
-                <div class="form-group">
-                  <label for="menuNameInput">Namn på ny meny-punkt:</label>
-                  <input class="form-control" id="menuNameInput" name="menuItemInput" type="text" required>
-                </div>
-                <div class="form-group">
-                  <label for="menuPathInput">Länkväg:</label>
-                  <input class="form-control" id="menuPathInput" name="menuItemInput" type="text" required>
-                </div>
-                <div class="form-group">
-                  <label for="menuParentInput">Välj ev. meny-punkt att ligga under</label>
-                  <select id="menuParentInput" name="menuParentInput">
-                      <option value="">Ingen</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="menuWeightInput">Välj hur hög rank menypunkten ska ha:</label>
-                  <input class="form-control" type="number" name="menuWeightInput" id="menuWeightInput" min="0" max="10">
-                </div>
-                <button type="submit" class="btn btn-default">Lägg till</button>
-              </form> -->
               <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="footerForm">
                 <h1>För att uppdatera sidfot</h1>
                 <div class="form-group">
@@ -154,8 +126,8 @@
       <div class="container">
         <div class="navbar navbar-default navbar-fixed-bottom" id="footer-wrapper">
           <footer class="row">
-              <adress class="navbar-left col-xs-4 col-sm-4 col-md-4 col-lg-4" id="footerAppendBoxLeft"></adress>
-              <adress class="navbar-left col-xs-4 col-sm-4 col-md-4 col-lg-4" id="footerAppendBoxRight"></adress>
+              <adress class="navbar-left col-xs-6 col-sm-6 col-md-6 col-lg-6" id="footerAppendBoxLeft"></adress>
+              <adress class="navbar-left col-xs-6 col-sm-6 col-md-6 col-lg-6" id="footerAppendBoxRight"></adress>
           </footer>
         </div>
       </div>

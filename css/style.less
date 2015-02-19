@@ -1,3 +1,4 @@
+
 //A beige color
 @basecolor:#ffffa8;
 //Darkgreen color of train in logo
@@ -32,42 +33,10 @@ header img {
 	padding: 10px;
 }
 
-nav ul > li.dropdown:hover > ul {
-	display: block;
-	float: left;
-	margin-top: 0;
-}
-
-main {
-	padding-bottom: 120px;
-}
-
-footer {
-	min-height: 60px;
-}
-
-#footerAppendBoxRight, #footerAppendBoxLeft {
-	display: inline;
-	margin-left: 30px;
-}
-
-footer div {
-	padding: 5px;
-}
-
-.emptySpace {
-	height: 25px;
-}
-
+//Styling for tags in nav
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
 	background-color: @traincolor;
 	color: lighten(@basecolor, 7%);
-}
-
-section {
-	margin-top: 10vh;
-	padding: 10vh;
-	background: lighten(@basecolor, 15%);
 }
 
 body {
@@ -77,11 +46,36 @@ body {
 	background-repeat: no-repeat;
 }
 
+main {
+	padding-bottom: 120px;
+}
+
+section {
+	margin-top: 10vh;
+	padding: 10vh;
+	background: lighten(@basecolor, 15%);
+}
+
 section img {
 	width:80%;
 }
 
-/* Large Devices, Wide Screens */
+//Styling for second level menu items
+#bottomUlInNav > li.dropdown:hover > ul {
+	display: block;
+	float: left;
+	margin-top: 0;
+}
+
+footer {
+	min-height: 60px;
+}
+
+footer div {
+	padding: 5px;
+}
+
+/* Special rules for Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
 	body {
 		background-image: url('../Pics/night_train_lg.jpg');
@@ -97,7 +91,7 @@ section img {
 	}
 }
 
-/* Medium Devices, Desktops */
+/* Rules for Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
 	body {
 		background-image: url('../Pics/night_train_md.jpg');
@@ -113,7 +107,7 @@ section img {
 	}
 }
 
-/* Small Devices, Tablets */
+/* Rules for Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
 	body {
 		background-image: url('../Pics/night_train_sm.jpg');
@@ -129,7 +123,7 @@ section img {
 	}
 }
 
-/* Extra Small Devices, Phones */ 
+/* Rules for Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
 	body {
 		background-image: url('../Pics/night_train_xs.jpg');
