@@ -27,7 +27,7 @@ function displaySection(endHref) {
 	$('#headerNavDiv li a[href='+ endHref +']').parent("li").addClass("active");
 	//hide all sections, then show the right one
 	$("section").hide();
-	$("section."+endHref).show();
+	$("section."+endHref).fadeIn();
 	//if all articles is required
 	if(endHref == "all"){
 		//run function to get all articles
